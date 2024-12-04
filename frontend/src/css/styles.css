@@ -765,6 +765,10 @@ video {
   background-color: #FFFFFF00;
 }
 
+.bg-custom-gradient {
+  background-image: linear-gradient(to top, #F9970420 2%, #1D1D1B01 50%);
+}
+
 .bg-headerBlob {
   background-image: url(/src/assets/headerBlob.png);
 }

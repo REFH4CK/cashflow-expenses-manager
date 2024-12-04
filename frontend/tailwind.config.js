@@ -8,6 +8,7 @@ export default {
       backgroundImage: {
         headerBlob: "url(/src/assets/headerBlob.png)",
         tryBlob: "url(/src/assets/trySection-blob.png)",
+        'custom-gradient': 'linear-gradient(to top, #F9970420 2%, #1D1D1B01 50%)'
       },
       fontFamily: {
         baloo: ["Baloo 2", "sans-serif"],
