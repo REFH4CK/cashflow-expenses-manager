@@ -1,11 +1,22 @@
+import { useTranslation } from "react-i18next";
+
 export function ChangeLanguage() {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (event) => {
+    i18n.changeLanguage(event.target.value);
+  };
+
   return (
     <>
-      <section className="w-full flex justify-center items-center font-k2d">
-        <select name="language" id="" className="border border-outline bg-transparent p-2 rounded-md text-outline">
-          <option value="">Change Language</option>
+      <section className="flex justify-center mb-6" onChange={changeLanguage}>
+        <select
+          name="language"
+          id=""
+          className="p-2 bg-transparent border-2 border-[#656565] text-[#e7e7e7] rounded-full w-[10rem]"
+        >
           <option value="en">English</option>
-          <option value="es">Spanish</option>
+          <option value="es">Español</option>
         </select>
       </section>
     </>

@@ -1,46 +1,49 @@
-import { send } from 'ionicons/icons';
-import { Socials } from '@/pages/Socials';
-import { ChangeLanguage } from '@/components/ChangeLanguage';
-
+import { Send } from "@/icons/Send";
+import { Socials } from "@/components/Socials";
+import { ChangeLanguage } from "@/components/ChangeLanguage";
+import { Input } from "@/components/Input";
+import { Fade } from "react-awesome-reveal";
 
 export function ContactUs() {
   return (
     <>
-      <section className="h-95dvh p-40 max-w-1920 mx-auto">
-        <article className='mx-auto'>
-          <h2 className="text-center text-white baloo-text text-4xl font-bold">
-            Contact Me
-          </h2>
-          <form className="flex flex-col w-96 mx-auto mt-6 gap-8">
-            <input
-              className="w-64 mx-auto px-3 py-2 bg-transparent border border-outline outline-none rounded-md text-outline"
-              type="text"
-              name="fullname"
-              id=""
-              placeholder="Fullname"
-            />
-            <input
-              className="w-64 mx-auto px-3 py-2 bg-transparent border border-outline outline-none rounded-md text-outline"
-              type="email"
-              name="email"
-              id=""
-              placeholder="Email"
-            />
-            <textarea
-              className="w-64 mx-auto px-3 py-2 bg-transparent border border-outline outline-none rounded-md h-32 resize-none text-outline"
-              name="message"
-              id=""
-              placeholder="Message"
-            ></textarea>
-            <button className=" flex justify-center items-center gap-2 bg-oxford-blue-700 text-white w-40 mx-auto p-3 rounded-md">
-              Submit <img src={send} className='w-5 invert' alt="Send icon" />
-            </button>
-          </form>
+      <section className="w-full overflow-hidden">
+        <article className="">
+          <Fade direction="up" triggerOnce>
+            <form className="mx-auto w-fit flex flex-col items-center gap-4 p-8 rounded-lg bg-oxford-blue-500/10 shadow-lg">
+              <h2
+                className={`
+              baloo text-3xl font-bold w-full text-center mb-6
+              md:text-[2.50rem] md:mb-8
+          `}
+              >
+                Contact Me
+              </h2>
+              <Input name="username" type="text" placeholder="Name" />
+              <Input name="email" type="email" placeholder="Email" />
+              <textarea
+                className="p-2 w-[16rem] md:w-[20rem] md:text-[1.2rem] rounded-lg focus:outline focus:outline-[1px] outline-tree-poppy-600 resize-none md:p-3"
+                name="message"
+                id="textareaMsg"
+                placeholder="Message"
+              ></textarea>
+              <button
+                className={`
+                flex items-center justify-center rounded-lg transition-colors p-2 gap-4 bg-oxford-blue-900 hover:bg-oxford-blue-700 w-[9rem]
+                md:text-[1.2rem] font-baloo md:w-[12rem]
+              `}
+              >
+                Submit <Send />
+              </button>
+            </form>
+          </Fade>
 
           <Socials />
           <ChangeLanguage />
         </article>
-      <p className='mt-16 text-outline text-xl baloo-text font-bold text-center'>All rights reserved &copy; REFH4CK 2024</p>
+        <p className="baloo text-tree-poppy-50 text-center font-semibold text-pretty w-full text-[.95rem] p-1 md:text-[1.5rem]">
+          All rights reserved &copy; REFH4CK 2024
+        </p>
       </section>
     </>
   );

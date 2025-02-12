@@ -1,20 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      height: { "60dvh": "60dvh", "100dvh": "102dvh", "95dvh": "95dvh"},
-      maxWidth: { 1920: "1920px" },
       backgroundImage: {
         headerBlob: "url(/src/assets/headerBlob.png)",
         tryBlob: "url(/src/assets/trySection-blob.png)",
-        'custom-gradient': 'linear-gradient(to top, #F9970420 2%, #1D1D1B01 50%)'
+        "custom-gradient":
+          "linear-gradient(to top, #F9970420 2%, #1D1D1B01 50%)",
       },
       fontFamily: {
-        baloo: ["Baloo 2", "sans-serif"],
+        baloo: ['"Baloo 2"', "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
         k2d: ["K2D", "sans-serif"],
         lexend: ["Lexend", "sans-serif"],
+      },
+      screens: {
+        xsm: "360px", // Extra small devices
+        sm: "500px", // Small devices
+        md: "768px", // Medium devices
+        lg: "1024px", // Large devices
+        xl: "1280px", // Extra large devices
+        "2xl": "1440px", // 2x Extra large devices
       },
     },
     colors: {

@@ -1,11 +1,22 @@
-import { AboutUsCard } from '@/components/AboutUsCard'
+import { AboutUsCard } from "@/components/AboutUsCard";
+import { Fade } from "react-awesome-reveal";
 
 export function AboutUs() {
   return (
     <>
-      <section className="h-65dvh px-40 bg-none">
-        <h2 className='text-5xl text-center font-lexend text-tree-poppy-100'>About Us</h2>
-        <article className="flex w-full justify-center gap-24 items-center pt-16">
+      <section className="xl:flex xl:items-center xl:flex-col w-full xl:h-[45dvh]">
+        <Fade triggerOnce>
+          <h2
+            className={`
+            baloo text-3xl text-tree-poppy-100 font-bold w-full text-left
+            md:text-[2.50rem] pt-6
+          `}
+          >
+            About Us
+          </h2>
+        </Fade>
+
+        <article className="pt-8 md:pt-12 flex flex-col gap-4 xl:flex-row xl:justify-center xl:items-center xl:gap-8">
           <AboutUsCard />
         </article>
       </section>

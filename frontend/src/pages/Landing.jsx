@@ -9,7 +9,7 @@ export function Landing() {
   return (
     <>
       <LandingHeader />
-      <main className="bg-landing min-h-dvh w-full mx-auto bg-custom-gradient">
+      <main className="flex flex-col items-center gap-[4rem] max-w-[1440px] mx-auto p-6 xl:px-16 scrollbar-none">
         <HomeSection />
         <TryCashSection />
         <AboutUs />
