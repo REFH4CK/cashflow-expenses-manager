@@ -2,6 +2,7 @@ import logo from "@/assets/cashflow-logo.svg";
 import { MenuHamburger } from "@/icons/MenuHamburger";
 import { Close } from "@/icons/Close";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 import { useState, useEffect, useRef } from "react";
 
 import { Fade } from "react-awesome-reveal";
@@ -9,6 +10,8 @@ import { Fade } from "react-awesome-reveal";
 export function LandingHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
+
+  const { t } = useTranslation();
 
   const handleMenu = (val) => {
     if (val === false) {
@@ -76,22 +79,22 @@ export function LandingHeader() {
                 </span>
                 <li className="hover:bg-[#F9970415] md:hover:rounded-lg transition-colors text-center p-4 md:p-2">
                   <Link to="#" className="md:p-2">
-                    Home
+                    {t("optionHome")}
                   </Link>
                 </li>
                 <li className="hover:bg-[#F9970415] md:hover:rounded-lg transition-colors text-center p-4 md:p-2">
                   <Link to="#" className="md:p-2">
-                    Try Cashflow
+                    {t("optionTry")}
                   </Link>
                 </li>
                 <li className="hover:bg-[#F9970415] md:hover:rounded-lg transition-colors text-center p-4 md:p-2">
                   <Link to="#" className="md:p-2">
-                    About Us
+                    {t("optionAbout")}
                   </Link>
                 </li>
                 <li className="hover:bg-[#F9970415] md:hover:rounded-lg transition-colors text-center p-4 md:p-2">
                   <Link to="#" className="md:p-2">
-                    Contact
+                    {t("optionContact")}
                   </Link>
                 </li>
               </ul>

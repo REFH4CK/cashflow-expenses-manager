@@ -1,4 +1,27 @@
 {
   "changeLanguage": "Change Language",
-  "cashflowTitle": "What is Cashflow?"
+  "cashflowTitle": "What is Cashflow?",
+  "optionHome": "Home",
+  "optionTry": "Try Cashflow",
+  "optionAbout": "About Us",
+  "optionContact": "Contact",
+  "WhatIsDescription": "Take control of your finances intelligently and efficiently with Cashflow. This tool allows you to optimize the management of your finances, ensuring every penny is accounted for and directed towards your goals.",
+  "WhatIsDesc2": "Enhance your financial management and boost your overall financial health by tracking your spending habits, setting budgets, and monitoring progress over time.",
+  "tryTitle": "Try our system totally free",
+  "tryDesc": "Effectively managing your finances is fundamental to achieving your goals. With Cashflow, streamline this essential task and maintain control over your income and expenses effortlessly.",
+  "tryDesc2": "Visualize your financial future with clarity, craft a robust plan, and turn your financial aspirations into reality. With Cashflow, you can explore innovative ways to manage your money, empower yourself with financial insight, and take confident steps toward a secure and prosperous future.",
+  "getStarted": "Get Started",
+  "aboutUs": "About Us",
+  "simplicity": "Simplicity",
+  "simplDesc": "We are committed to offering a simple and user-friendly tool that allows our users to manage their finances in an intuitive and uncomplicated way.",
+  "effectiveness": "Effectiveness",
+  "effectivDesc": "We aim to provide an effective solution that simplifies the management of financial resources, enabling strategic decisions for efficient financial goals.",
+  "empowerment": "Empowerment",
+  "empowerDesc": "We strive to empower users with tools to take control of their finances and achieve their financial goals with confidence and ease.",
+  "contact": "Contact",
+  "submit": "Submit",
+  "rights": "All rights reserved © REFH4CK 2024 - Cashflow 2025",
+  "name": "Name",
+  "email": "Email",
+  "message": "Message"
 }

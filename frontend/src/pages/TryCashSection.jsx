@@ -1,8 +1,12 @@
 import tryImage from "@/assets/images/stats-img.png";
 import { Link } from "react-router";
 import { Fade } from "react-awesome-reveal";
+import { useTranslation } from "react-i18next";
+
 
 export function TryCashSection() {
+  const { t } = useTranslation();
+
   return (
     <>
       <section className="xl:flex xl:items-center w-full xl:h-[50dvh]">
@@ -25,7 +29,7 @@ export function TryCashSection() {
                 xl:text-[3rem] xl:mb-4 xl:w-full
               `}
               >
-                Try our system totally free
+                {t("tryTitle")}
               </h1>
             </Fade>
             <Fade direction="up" triggerOnce delay={200}>
@@ -37,15 +41,9 @@ export function TryCashSection() {
                 xl:text-[1.3rem] xl:w-[47rem]
               `}
               >
-                Effectively managing your finances is fundamental to achieving
-                your goals. With Cashflow, streamline this essential task and
-                maintain control over your income and expenses effortlessly.{" "}
+                {t("tryDesc")}
                 <br /> <br />
-                Visualize your financial future with clarity, craft a robust
-                plan, and turn your financial aspirations into reality. With
-                Cashflow, you can explore innovative ways to manage your money,
-                empower yourself with financial insight, and take confident
-                steps toward a secure and prosperous future.
+                {t("tryDesc2")}
               </p>
             </Fade>
             <Fade direction="up" delay={400} triggerOnce>
@@ -54,7 +52,7 @@ export function TryCashSection() {
                   to={"/login"}
                   className="bg-oxford-blue-800 text-tree-poppy-500 font-k2d font-bold w-[80%] text-center py-2 rounded-full hover:bg-oxford-blue-900 transition-colors shadow-lg shadow-[#00000050] md:p-3 md:w-full lg:w-[60%] lg:p-3"
                 >
-                  Get Started
+                  {t("getStarted")}
                 </Link>
               </div>
             </Fade>

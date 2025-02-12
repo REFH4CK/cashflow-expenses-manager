@@ -1,7 +1,11 @@
 import { AboutUsCard } from "@/components/AboutUsCard";
 import { Fade } from "react-awesome-reveal";
+import { useTranslation } from "react-i18next";
+
 
 export function AboutUs() {
+  const { t } = useTranslation();
+
   return (
     <>
       <section className="xl:flex xl:items-center xl:flex-col w-full xl:h-[45dvh]">
@@ -12,7 +16,7 @@ export function AboutUs() {
             md:text-[2.50rem] pt-6
           `}
           >
-            About Us
+            {t("aboutUs")}
           </h2>
         </Fade>
 

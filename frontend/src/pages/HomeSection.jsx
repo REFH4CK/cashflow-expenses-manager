@@ -38,13 +38,7 @@ export function HomeSection() {
                 xl:text-[1.3rem] xl:w-[47rem]
               `}
               >
-                Take control of your finances intelligently and efficiently with
-                Cashflow. This tool allows you to optimize the management of
-                your finances, ensuring every penny is accounted for and
-                directed towards your goals. <br /> <br />
-                Enhance your financial management and boost your overall
-                financial health by tracking your spending habits, setting
-                budgets, and monitoring progress over time.
+                {t("WhatIsDescription")} <br /> <br /> {t("WhatIsDesc2")}
               </p>
             </Fade>
           </div>

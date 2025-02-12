@@ -1,22 +1,23 @@
 import { Fade } from "react-awesome-reveal";
+import { useTranslation } from "react-i18next";
+
 
 export function AboutUsCard() {
+  const { t } = useTranslation();
+
   const aboutUsInfo = [
     {
-      title: "Simplicity",
-      content:
-        "We are committed to offering a simple and user-friendly tool that allows our users to manage their finances in an intuitive and uncomplicated way.",
+      title: t("simplicity"),
+      content: t("simplDesc"),
     },
     {
-      title: "Effectiveness",
+      title: t("effectiveness"),
       right: true,
-      content:
-        "We aim to provide an effective solution that simplifies the management of financial resources, enabling strategic decisions for efficient financial goals.",
+      content: t("effectivDesc"),
     },
     {
-      title: "Empowerment",
-      content:
-        "We strive to empower users with tools to take control of their finances and achieve their financial goals with confidence and ease.",
+      title: t("empowerment"),
+      content: t("empowerDesc"),
     },
   ];
 

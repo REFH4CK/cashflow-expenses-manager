@@ -3,8 +3,12 @@ import { Socials } from "@/components/Socials";
 import { ChangeLanguage } from "@/components/ChangeLanguage";
 import { Input } from "@/components/Input";
 import { Fade } from "react-awesome-reveal";
+import { useTranslation } from "react-i18next";
+
 
 export function ContactUs() {
+  const { t } = useTranslation();
+
   return (
     <>
       <section className="w-full overflow-hidden">
@@ -17,15 +21,15 @@ export function ContactUs() {
               md:text-[2.50rem] md:mb-8
           `}
               >
-                Contact Me
+                {t("contact")}
               </h2>
-              <Input name="username" type="text" placeholder="Name" />
-              <Input name="email" type="email" placeholder="Email" />
+              <Input name="username" type="text" placeholder={t("name")} />
+              <Input name="email" type="email" placeholder={t("email")} />
               <textarea
                 className="p-2 w-[16rem] md:w-[20rem] md:text-[1.2rem] rounded-lg focus:outline focus:outline-[1px] outline-tree-poppy-600 resize-none md:p-3"
                 name="message"
                 id="textareaMsg"
-                placeholder="Message"
+                placeholder={t("message")}
               ></textarea>
               <button
                 className={`

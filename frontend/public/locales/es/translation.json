@@ -1,4 +1,27 @@
 {
   "changeLanguage": "Cambiar Idioma",
-  "cashflowTitle": "Que es Cashflow?"
+  "cashflowTitle": "Que es Cashflow?",
+  "optionHome": "Inicio",
+  "optionTry": "Probar Cashflow",
+  "optionAbout": "Acerca de",
+  "optionContact": "Contacto",
+  "WhatIsDescription": "Tome el control de sus finanzas de manera inteligente y eficiente con Cashflow. Esta herramienta le permite optimizar la gestión de sus finanzas, asegurando que cada centavo esté contabilizado y dirigido hacia sus objetivos.",
+  "WhatIsDesc2": "Mejore su gestión financiera y mejore su salud financiera general haciendo un seguimiento de sus hábitos de gasto, estableciendo presupuestos y monitoreando el progreso a lo largo del tiempo.",
+  "tryTitle": "Pruebe nuestro sistema totalmente gratis",
+  "tryDesc": "Administrar eficazmente sus finanzas es fundamental para alcanzar sus objetivos. Con Cashflow, agilice esta tarea esencial y mantenga el control sobre sus ingresos y gastos sin esfuerzo.",
+  "tryDesc2": "Visualice su futuro financiero con claridad, elabore un plan sólido y haga realidad sus aspiraciones financieras. Con Cashflow, puede explorar formas innovadoras de administrar su dinero, empoderarse con conocimientos financieros y dar pasos seguros hacia un futuro seguro y próspero.",
+  "getStarted": "Empezar",
+  "aboutUs": "Sobre Nosotros",
+  "simplicity": "Simplicidad",
+  "simplDesc": "Nos comprometemos a ofrecer una herramienta sencilla y fácil de usar que permita a nuestros usuarios gestionar sus finanzas de forma intuitiva y sin complicaciones.",
+  "effectiveness": "Eficacia",
+  "effectivDesc": "Nuestro objetivo es brindar una solución eficaz que simplifique la gestión de los recursos financieros, permitiendo tomar decisiones estratégicas para lograr objetivos financieros eficientes.",
+  "empowerment": "Empoderamiento",
+  "empowerDesc": "Nos esforzamos por brindar a los usuarios herramientas para tomar el control de sus finanzas y lograr sus objetivos financieros con confianza y facilidad.",
+  "contact": "Contactanos",
+  "submit": "Enviar",
+  "rights": "Todos los derechos reservador © REFH4CK - Cashflow 2025",
+  "name": "Nombre",
+  "email": "Correo Electrónico",
+  "message": "Mensaje"
 }
