@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        headerBlob: "url(/src/assets/headerBlob.png)",
-        tryBlob: "url(/src/assets/trySection-blob.png)",
+        headerBlob: "url(assets/images/headerBlob.png)",
+        tryBlob: "url(assets/images/trySection-blob.png)",
         "custom-gradient":
           "linear-gradient(to top, #F9970420 2%, #1D1D1B01 50%)",
       },
