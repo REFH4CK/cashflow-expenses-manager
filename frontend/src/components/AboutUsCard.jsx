@@ -41,7 +41,7 @@ export function AboutUsCard() {
               className={`
               baloo text-tree-poppy-50 font-light text-pretty w-full text-[.95rem] p-3
               md:text-[1.25rem] md:p-4 md:w-[30rem] bg-oxford-blue-500/10 rounded-lg
-              lg:w-[40rem] shadow-lg xl:w-[24rem] xl:h-[10rem]
+              lg:w-[40rem] shadow-lg xl:w-[24rem] xl:h-[11rem]
             `}
             >
               {card.content}
