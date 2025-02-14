@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        headerBlob: "url(assets/images/headerBlob.png)",
-        tryBlob: "url(assets/images/trySection-blob.png)",
+        headerBlob: "url(/assets/images/headerBlob.png)",
+        tryBlob: "url(/assets/images/trySection-blob.png)",
+        loginbg: "url('/assets/images/login-bg.png')",
         "custom-gradient":
           "linear-gradient(to top, #F9970420 2%, #1D1D1B01 50%)",
       },
@@ -13,6 +14,7 @@ export default {
         baloo: ['"Baloo 2"', "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
         k2d: ["K2D", "sans-serif"],
+        lilita: ["'Lilita One'", "sans-serif"],
         lexend: ["Lexend", "sans-serif"],
       },
       screens: {
