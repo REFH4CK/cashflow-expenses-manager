@@ -1,8 +1,8 @@
 import { LandingHeader } from "@/components/Header";
-import { HomeSection } from "@/pages/HomeSection";
-import { TryCashSection } from "@/pages/TryCashSection";
-import { AboutUs } from "@/pages/AboutUs";
-import { ContactUs } from "@/pages/ContactUs";
+import { HomeSection } from "@/pages/Landing/HomeSection";
+import { TryCashSection } from "@/pages/Landing/TryCashSection";
+import { AboutUs } from "@/pages/Landing/AboutUs";
+import { ContactUs } from "@/pages/Landing/ContactUs";
 
 export function Landing() {
   return (
@@ -17,10 +17,10 @@ export function Landing() {
         }}
       ></div>
       <div
-        className="absolute left-0 top-[37rem] w-[45rem] h-[55rem]"
+        className="absolute left-0 top-[37rem] w-full sm:w-full md:w-[45rem] h-[55rem] bg-no-repeat"
         style={{
           backgroundImage: "url('/src/assets/images/trySection-blob.png')",
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       ></div>
