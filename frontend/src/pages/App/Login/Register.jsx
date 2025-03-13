@@ -3,16 +3,63 @@ import { useState } from "react";
 import { HidePass, ShowPass } from "@/icons/ShowHidePass";
 import { Arrow } from "@/icons/Arrow";
 import { Input } from "@/components/App/Input";
+import { toast } from "@pheralb/toast";
 import { Link } from "react-router";
 
 export function Register() {
   const [showPassword, setShowPassword] = useState("password");
+  const [registerData, setRegisterData] = useState({
+    name: "",
+    email: "",
+    username: "",
+    password: "",
+  });
 
   const handleShowPassword = () => {
     if (showPassword === "password") {
       setShowPassword("text");
     } else {
       setShowPassword("password");
+    }
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    if (registerData.name === "" || registerData.email === "" || registerData.username === "" || registerData.password === "") {
+      toast.error({
+        text: "All fields are required!"
+      });
+    } else {
+      fetch("http://localhost:3000/cashflow/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(registerData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.error) {
+            toast.error({
+              text: data.error,
+            });
+          } else {
+            toast.success({
+              text: data.message,
+              description:
+                "You are redirected to login page.💎",
+            });
+
+            setTimeout(() => {
+              window.location.href = "/login";
+            }, 2500)
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 
@@ -38,10 +85,16 @@ export function Register() {
 
           <div className="bg-[#334051] py-8 w-[95%] xsm:w-[80%] sm:w-[65%] md:w-[45%] lg:w-[35%] xl:w-[30%] 2xl:w-[25rem]  rounded-lg shadow-lg">
             <h1 className="lilita text-4xl text-center pb-8">Sign Up</h1>
-            <form className="mt-4 space-y-4 flex flex-col items-center">
+            <form
+              className="mt-4 space-y-4 flex flex-col items-center"
+              onSubmit={handleRegister}
+            >
               <Input
                 type={"text"}
                 id={"fullname"}
+                onChange={(e) =>
+                  setRegisterData({ ...registerData, name: e.target.value })
+                }
                 placeholder={"Fullname"}
                 autoComplete="off"
               />
@@ -49,6 +102,9 @@ export function Register() {
               <Input
                 type={"email"}
                 id={"email"}
+                onChange={(e) =>
+                  setRegisterData({ ...registerData, email: e.target.value })
+                }
                 placeholder={"Email"}
                 autoComplete="off"
               />
@@ -56,6 +112,9 @@ export function Register() {
               <Input
                 type={"text"}
                 id={"username"}
+                onChange={(e) =>
+                  setRegisterData({ ...registerData, username: e.target.value })
+                }
                 placeholder={"Username"}
                 autoComplete="off"
               />
@@ -64,6 +123,12 @@ export function Register() {
                 <Input
                   type={showPassword}
                   id={"password"}
+                  onChange={(e) =>
+                    setRegisterData({
+                      ...registerData,
+                      password: e.target.value,
+                    })
+                  }
                   placeholder={"Password"}
                   autoComplete="off"
                 />

@@ -30,3 +30,22 @@
 #root {
   background-image: linear-gradient(to bottom, transparent 25%, #F9970410 100%);
 }
+
+#explains {
+  list-style-type: none;
+  padding-left: 35px;
+}
+
+#explains li {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+#explains li::before {
+  content: "•";
+  color: #607A97;
+  font-size: 2rem;
+  position: absolute;
+  top: -15px;
+  left: -20px;
+}
