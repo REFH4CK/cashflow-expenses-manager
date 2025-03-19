@@ -26,7 +26,7 @@ export function InitialStep() {
 
   const [spendLimit, setSpendLimit] = useState("");
 
-  if (user.country != "" || user.reputation != 0 || user.spend_limit != 0) {
+  if (user.country != null || user.reputation != null || user.spend_limit != null) {
     return navigate("/dashboard");
   }
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { HidePass, ShowPass } from "@/icons/ShowHidePass";
 import { toast } from "@pheralb/toast";
 import { useNavigate } from "react-router";
-import { useAuth } from "@/context/useAuth"; // Importa useAuth
+import { useAuth } from "@/context/useAuth";
 
 export function Login() {
   const [showPassword, setShowPassword] = useState("password");
@@ -13,7 +13,7 @@ export function Login() {
   });
 
   const navigate = useNavigate();
-  const { login } = useAuth(); // Obtén la función login del contexto
+  const { login } = useAuth();
 
   const handleShowPassword = () => {
     if (showPassword === "password") {
@@ -47,15 +47,14 @@ export function Login() {
             });
           } else {
             if (data.user) {
-              login(data.user); // Actualiza el estado del usuario en el contexto
-              navigate("/dashboard"); // Redirige al dashboard
+              login(data.user);
+              navigate("/dashboard");
             }
             toast.success({
               text: data.message,
               description: "Welcome to CashFlow💎",
             });
 
-            // Redirige usando useNavigate
             setTimeout(() => {
               navigate("/dashboard");
             }, 2500);

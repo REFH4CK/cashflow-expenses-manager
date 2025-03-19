@@ -29,7 +29,7 @@ export function AsideBar({ log }) {
       >
         <ul className="flex flex-col h-screen items-center justify-between p-6 overflow-hidden relative">
           <article className="flex flex-col gap-8 w-full mt-[8rem]">
-            <li className="flex items-center justify-between absolute top-0 left-0 bg-[#6c86a870] w-full pt-4 pl-4">
+            <li className="flex items-center justify-between absolute top-0 left-0 bg-[#977d5773] w-full pt-4 pl-4">
               <img src={logo} alt="CashFlow Logo" className="w-[6rem]" />
               <h3></h3>
             </li>
