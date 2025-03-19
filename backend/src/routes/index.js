@@ -5,6 +5,8 @@ import { verifyAuth } from "../controllers/verifyAuth.js";
 import { logout } from "../controllers/logout.js";
 import { updateProfile } from '../controllers/updateProfile.js';
 import { accountData } from '../controllers/accountData.js';
+import { userProfileData } from '../controllers/accountData.js';
+import { lastMovementsData } from '../controllers/accountData.js'
 
 const router = express.Router();
 
@@ -19,12 +21,16 @@ router.get('/cashflow/api', (req, res) => {
     `);
 });
 
-router.post('/cashflow/api/register', register);
-router.post('/cashflow/api/login', login);
-router.post('/cashflow/api/completed-profile', updateProfile);
-router.post('/cashflow/api/acc_data', accountData);
 router.get("/cashflow/api/verify-auth", verifyAuth);
 router.post("/cashflow/api/logout", logout);
 
+router.post('/cashflow/api/login', login);
+router.post('/cashflow/api/register', register);
+
+router.post('/cashflow/api/completed-profile', updateProfile);
+router.post('/cashflow/api/acc_data', accountData);
+router.post("/cashflow/api/last_movs", lastMovementsData);
+
+router.get("/cashflow/api/profile/:UID", userProfileData)
 
 export default router;

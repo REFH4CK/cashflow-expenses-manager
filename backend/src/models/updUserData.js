@@ -8,8 +8,6 @@ export const updUserData = async (birthday, country, currency, gender, spendLimi
     args: [country, spendLimit, reputation, gender, birthday, uid],
   });
 
-  console.log("Model", { country, spendLimit, reputation, gender, birthday, uid });
-
   await updCurrency(uid, currency);
 
   return queryResult.rows;
@@ -21,6 +19,19 @@ export const updCurrency = async (UID, currency) => {
   const queryResult = await turso.execute({
     sql: QUERY,
     args: [UID, currency],
+  });
+
+  await updBalance(UID, queryResult.lastInsertRowid);
+
+  return queryResult.rows;
+};
+
+export const updBalance = async (UID, id_currency) => {
+  const QUERY = `INSERT INTO balance (id_user, id_currency, balance ) VALUES (?, ?, ?)`;
+
+  const queryResult = await turso.execute({
+    sql: QUERY,
+    args: [UID, id_currency, 0],
   });
 
   return queryResult.rows;
