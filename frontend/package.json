@@ -25,6 +25,7 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^15.4.0",
     "react-router": "^7.0.2",
+    "react-spinners": "^0.15.0",
     "temporal-polyfill": "^0.2.5"
   },
   "devDependencies": {
