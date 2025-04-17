@@ -1,12 +1,15 @@
-import { AsideBar } from "@/components/App/AsideBar";
-import { FormGroup } from "@/components/App/FormGroup";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { Fade } from "react-awesome-reveal";
+
 import { useAuth } from "@/context/useAuth";
+import { AsideBar } from "@/components/App/AsideBar";
+import { FormGroup } from "@/components/App/FormGroup";
+import { CurrencySelect } from "@/components/App/CurrencySelect";
 import { toast } from "@pheralb/toast";
 
 export function RegisterFlow() {
-  const { logout } = useAuth();
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -21,13 +24,14 @@ export function RegisterFlow() {
   const [label, setLabel] = useState("inflow");
   const [cashData, setCashData] = useState({
     quantity: "",
-    currency: "",
+    id_currency: "",
     description: "",
-    label: "",
+    mov_type: label,
     date: "",
+    UID: user.id,
   });
 
-  // Maneja cambios en los inputs
+  // Manejar cambios en los inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setCashData({
@@ -36,15 +40,60 @@ export function RegisterFlow() {
     });
   };
 
-  // Maneja el envío del formulario
+  // Manejo del envío del formulario
   const handleCashData = (e) => {
     e.preventDefault();
-    console.log("Datos del formulario:", cashData);
+
+    if(!cashData || !cashData.quantity || !cashData.id_currency || !cashData.description || !cashData.date) {
+      toast.error({
+        text: "Please fill in all fields.",
+      });
+
+      console.log(cashData);
+
+      return;
+    }
+
+    fetch("http://localhost:3000/cashflow/api/update_balance", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cashData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to update balance");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        toast.success({
+          text: "Record added successfully!",
+        });
+        setCashData({
+          quantity: "",
+          id_currency: "",
+          description: "",
+          mov_type: label,
+          date: "",
+          UID: user.id,
+        });
+      })
+      .catch((error) => {
+        toast.error({
+          text: "Error",
+          description: error.message,
+        });
+      });
   };
 
   const handleLabel = (label) => {
     setLabel(label);
-    setCashData({label: label})
+    setCashData((prev) => ({
+      ...prev,
+      mov_type: label,
+    }));
   };
 
   return (
@@ -83,59 +132,49 @@ export function RegisterFlow() {
               className="flex flex-col items-center justify-center h-[80%] gap-10"
               onSubmit={handleCashData}
             >
-              <div className="flex gap-16">
-                <FormGroup
-                  label={"Quantity"}
-                  type={"text"}
-                  id={"quantity"}
-                  name={"quantity"}
-                  placeholder={'0.0'}
-                  value={cashData.quantity}
-                  onChange={handleInputChange}
-                />
-                <div className="flex flex-col">
-                  <label
-                    htmlFor=""
-                    className="text-white/50 font-lexend text-[0.90rem] font-light"
-                  >
-                    Currency
-                  </label>
-                  <select
-                    name="currency"
-                    id="currency"
-                    className="bg-oxford-blue-700 w-[14rem] h-[2.5rem] text-white/65 rounded-lg p-2 px-3"
-                    value={cashData.currency}
+              <Fade triggerOnce direction="up" cascade damping={0.25}>
+                <div className="flex gap-16">
+                  <FormGroup
+                    label={"Quantity"}
+                    type={"text"}
+                    id={"quantity"}
+                    name={"quantity"}
+                    placeholder={"0.0"}
+                    value={cashData.quantity}
                     onChange={handleInputChange}
-                  >
-                    <option value="">Select currency</option>
-                  </select>
+                  />
+                  <CurrencySelect
+                    id={user.id}
+                    value={cashData.id_currency}
+                    onChange={handleInputChange}
+                  />
                 </div>
-              </div>
-              <div className="flex gap-16">
-                <FormGroup
-                  label={"Description"}
-                  type={"text"}
-                  id={"description"}
-                  name={"description"}
-                  placeholder={"ex. shopping, food, etc."}
-                  value={cashData.description}
-                  onChange={handleInputChange}
-                />
-                <FormGroup
-                  label={`${label[0].toUpperCase()}${label.slice(1, 8)} date`}
-                  type={"date"}
-                  id={"date"}
-                  name={"date"}
-                  value={cashData.date}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <button
-                type="submit"
-                className="font-lexend font-semibold bg-[#50759C] py-3 px-16 rounded-xl hover:bg-[#507fb1] transition-colors"
-              >
-                Add record
-              </button>
+                <div className="flex gap-16">
+                  <FormGroup
+                    label={"Description"}
+                    type={"text"}
+                    id={"description"}
+                    name={"description"}
+                    placeholder={"ex. shopping, food, etc."}
+                    value={cashData.description}
+                    onChange={handleInputChange}
+                  />
+                  <FormGroup
+                    label={`${label[0].toUpperCase()}${label.slice(1, 8)} date`}
+                    type={"date"}
+                    id={"date"}
+                    name={"date"}
+                    value={cashData.date}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="font-lexend font-semibold bg-[#50759C] py-3 px-16 rounded-xl hover:bg-[#507fb1] transition-colors"
+                >
+                  Add record
+                </button>
+              </Fade>
             </form>
           </article>
         </section>

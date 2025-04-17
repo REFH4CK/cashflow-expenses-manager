@@ -1,5 +1,6 @@
+import PropTypes from "prop-types";
 import { Line } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,7 +13,11 @@ import {
   Filler,
 } from "chart.js";
 
-export function SavingsStats() {
+export function SavingsStats({ entries, exits, labels }) {
+
+  const hasData =
+  entries?.length > 0 && exits?.length > 0 && labels?.length > 0;
+  
   // Registra los componentes de Chart.js
   ChartJS.register(
     CategoryScale,
@@ -60,33 +65,12 @@ export function SavingsStats() {
     },
   };
 
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  // const entries = [150, 685, 125, 960, 1210, 102, 20, 25, 35, 520, 8510, 3250];
-
-  // const exits = [-500, -598, -3205, -100, -2540, -325, -805, -120, -40, -80, -152, -350];
-
-
-
   const data = {
-    labels,
+    labels: hasData ? labels : ["No data"],
     datasets: [
       {
         label: "Exit",
-        data: labels.map(() => faker.number.int(1000, -1000)),
+        data: hasData ? exits : [0],
         borderColor: "rgba(223, 0, 0, 0.2)", // Color del borde de la línea
         backgroundColor: "rgba(223, 0, 0, 0.5)", // Color de relleno semitransparente
         fill: {
@@ -98,7 +82,7 @@ export function SavingsStats() {
       },
       {
         label: "Entry",
-        data: labels.map(() => faker.number.int(1200, -1000)),
+        data: hasData ? entries : [0],
         borderColor: "#8fbf40", // Color del borde de la línea
         backgroundColor: "rgba(143, 0, 0, 0.5)", // Color de relleno semitransparente
         fill: {
@@ -111,9 +95,27 @@ export function SavingsStats() {
     ],
   };
 
+
+
   return (
     <>
-      <Line options={options} data={data} className="rounded-b-[1.8rem]"></Line>
+      <div className="h-full w-full">
+        {hasData ? (
+          <Line options={options} data={data} />
+        ) : (
+          <div className="flex items-center justify-center mt-[14rem] bg-tree-poppy-600/20 w-[18rem] mx-auto p-4 rounded-lg">
+            <p className="text-white/85">
+              No data available for selected filters
+            </p>
+          </div>
+        )}
+      </div>
     </>
   );
 }
+
+SavingsStats.propTypes = {
+  entries: PropTypes.array,
+  exits: PropTypes.array,
+  labels: PropTypes.array,
+};

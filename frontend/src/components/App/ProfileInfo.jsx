@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import ReactCountryFlag from "react-country-flag";
 import countries from "@/assets/data/countries.json";
 import { useEffect, useState } from "react";
+import { PuffLoader } from "react-spinners";
+import { Fade } from "react-awesome-reveal";
 
 export function ProfileInfo({
   id,
@@ -9,8 +11,6 @@ export function ProfileInfo({
   country,
   username,
   reputation,
-  spend_limit,
-  photo,
 }) {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,50 +31,59 @@ export function ProfileInfo({
       });
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <div className="flex w-full h-full justify-center items-center">
+        <PuffLoader size={128} color="#b35925"></PuffLoader>
+      </div>
+    );
 
   return (
     <>
       <article className="flex justify-between p-12 items-center">
         <div className="flex gap-4">
-          <div className="size-[10rem] border-4 border-oxford-blue-700 rounded-full p-2">
-            <img
-              src="https://placehold.co/200"
-              alt={`Profile photo of ${username}`}
-              className="rounded-full"
-            />
-          </div>
-          <div className="flex flex-col mt-6">
-            <h2 className="text-3xl font-bold text-oxford-blue-200 font-baloo">
-              {name}{" "}
-              <ReactCountryFlag
-                style={{
-                  fontSize: "2rem",
-                }}
-                aria-label={mappedCountry.name}
-                countryCode={mappedCountryCode}
-                svg
+          <Fade triggerOnce>
+            <div className="size-[10rem] border-4 border-oxford-blue-700 rounded-full p-2">
+              <img
+                src={`${profile[0].profile_photo != '' ? `http://localhost:3000/cashflow/api${profile[0].profile_photo}` : 'https://placehold.co/200x200'}`}
+                alt={`Profile photo of ${username}`}
+                className="rounded-full"
               />
-            </h2>
-            <span className="font-lexend text-sm font-light text-[#FFFFFF60] ml-1 -mt-1">
-              @{username}
-            </span>
-            <div className="flex flex-col pt-4 text-oxford-blue-200 font-medium font-baloo">
-              About him
-              <p className="text-oxford-blue-400 font-medium font-lexend">
-                {profile[0].description}
-              </p>
             </div>
+            <div className="flex flex-col mt-6">
+              <h2 className="text-3xl font-bold text-oxford-blue-200 font-baloo">
+                {name}{" "}
+                <ReactCountryFlag
+                  style={{
+                    fontSize: "2rem",
+                  }}
+                  aria-label={mappedCountry.name}
+                  countryCode={mappedCountryCode}
+                  svg
+                />
+              </h2>
+              <span className="font-lexend text-sm font-light text-[#ffffff60] ml-1 -mt-1">
+                @{username}
+              </span>
+              <div className="flex flex-col pt-4 text-oxford-blue-200 font-medium font-baloo">
+                About him
+                <p className="text-oxford-blue-400 font-medium font-lexend">
+                  {profile[0].description}
+                </p>
+              </div>
+            </div>
+          </Fade>
+        </div>
+        <Fade triggerOnce delay={150}>
+          <div className="flex flex-col items-center bg-tree-poppy-500/15 p-8 w-[18rem] rounded-lg">
+            <h3 className="text-tree-poppy-100/60 font-bold text-2xl">
+              Savings reputation
+            </h3>
+            <p className="text-[1.8rem] mt-4 font-bold font-lexend text-tree-poppy-400/60">
+              {reputation} PTS
+            </p>
           </div>
-        </div>
-        <div className="flex flex-col items-center bg-tree-poppy-500/15 p-8 w-[18rem] rounded-lg">
-          <h3 className="text-tree-poppy-100/60 font-bold text-2xl">
-            Savings reputation
-          </h3>
-          <p className="text-[1.8rem] mt-4 font-bold font-lexend text-tree-poppy-400/60">
-            {reputation} PTS
-          </p>
-        </div>
+        </Fade>
       </article>
     </>
   );
@@ -87,5 +96,5 @@ ProfileInfo.propTypes = {
   country: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   reputation: PropTypes.number.isRequired,
-  spend_limit: PropTypes.number.isRequired,
+  spend_limit: PropTypes.number,
 };

@@ -6,7 +6,7 @@ export function FormGroup({ label, name, value, type, onChange, placeholder }) {
     <>
       <div className="flex flex-col">
         <label htmlFor={name} className="text-white/50 font-lexend text-[0.90rem] font-light">
-          {label}
+          {label.length > 27 ? `${label.slice(0, 24)}...` : label}
         </label>
         <input
           type={type}
@@ -15,7 +15,7 @@ export function FormGroup({ label, name, value, type, onChange, placeholder }) {
           name={name} // Asegúrate de pasar el `name`
           value={value || ""} // Siempre usa una cadena, incluso si está vacía
           className="bg-oxford-blue-700 w-[14rem] text-white/65 rounded-lg p-2 px-3"
-          onChange={onChange}
+          onChange={onChange}          
         />
       </div>
     </>
@@ -25,7 +25,7 @@ export function FormGroup({ label, name, value, type, onChange, placeholder }) {
 FormGroup.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   type: PropTypes.string,
   onChange: PropTypes.func,
   placeholder: PropTypes.string

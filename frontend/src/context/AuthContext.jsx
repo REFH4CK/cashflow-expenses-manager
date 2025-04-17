@@ -4,7 +4,6 @@ import { useNavigate } from "react-router";
 // Crear el contexto
 export const AuthContext = createContext();
 
-// Proveedor del contexto
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -15,13 +14,12 @@ export const AuthProvider = ({ children }) => {
         const response = await fetch(
           "http://localhost:3000/cashflow/api/verify-auth",
           {
-            credentials: "include", // Incluye cookies en la solicitud
+            credentials: "include",
           }
         );
         const data = await response.json();
-        console.log("Data from verifyAuth:", data); // Depuración
         if (data.user) {
-          setUser(data.user); // Actualiza el estado del usuario
+          setUser(data.user);
         } else {
           return navigate("/login");
         }
@@ -41,9 +39,9 @@ export const AuthProvider = ({ children }) => {
     try {
       await fetch("http://localhost:3000/cashflow/api/logout", {
         method: "POST",
-        credentials: "include", // Incluye cookies en la solicitud
+        credentials: "include",
       });
-      setUser(null); // Limpia los datos del usuario
+      setUser(null);
     } catch (error) {
       console.error("Error logging out:", error);
     }

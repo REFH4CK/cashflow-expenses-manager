@@ -20,7 +20,7 @@ export function Saluting({ fill, w, h }) {
 }
 
 Saluting.propTypes = {
-  fill: PropTypes.string.isRequired,
-  w: PropTypes.string.isRequired,
-  h: PropTypes.string.isRequired
+  fill: PropTypes.string,
+  w: PropTypes.string,
+  h: PropTypes.string
 }

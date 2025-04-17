@@ -5,8 +5,9 @@ import { Fade } from "react-awesome-reveal";
 
 export function Balance({ UID }) {
   const [balance, setBalance] = useState([]);
-
+  
   const fetchUserBalance = useCallback(async () => {
+    const currentMonth = new Date().getMonth() + 1;
     try {
       const response = await fetch(
         "http://localhost:3000/cashflow/api/acc_data",
@@ -15,7 +16,7 @@ export function Balance({ UID }) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ UID: UID }),
+          body: JSON.stringify({ UID: UID, month: currentMonth }),
         }
       );
 
@@ -53,16 +54,10 @@ export function Balance({ UID }) {
                     {b.total_balance}
                   </p>
                 </h2>
-                <LineChart></LineChart>
+                <LineChart balancesData={b} ></LineChart>
               </article>
             ))
-          ) : (
-            <div className="w-[60rem] h-[60%] flex justify-center items-center absolute">
-              <p className="w-[35rem] rounded-xl bg-oxford-blue-900 p-8 text-center text-white">
-                No balance data available 💀
-              </p>
-            </div>
-          )}
+          ) : ('')}
         </Fade>
       </section>
     </>

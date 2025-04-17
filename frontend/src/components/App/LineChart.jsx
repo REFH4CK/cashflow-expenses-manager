@@ -1,5 +1,6 @@
 import { Line } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
+import { useState, useEffect } from "react";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,11 +9,10 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend,
   Filler,
 } from "chart.js";
 
-export function LineChart() {
+export function LineChart(balancesData) {
   // Registra los componentes de Chart.js
   ChartJS.register(
     CategoryScale,
@@ -21,7 +21,6 @@ export function LineChart() {
     LineElement,
     Title,
     Tooltip,
-    Legend,
     Filler
   );
 
@@ -60,29 +59,60 @@ export function LineChart() {
     },
   };
 
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  const [labels, setLabels] = useState([]);
+  const [entries, setEntries] = useState([]);
+  const [exits, setExits] = useState([]);
 
-  // const entries = [150, 685, 125, 960, 1210, 102, 20, 25, 35, 520, 8510, 3250];
+  useEffect(() => {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
 
-  // const exits = [-500, -598, -3205, -100, -2540, -325, -805, -120, -40, -80, -152, -350];
+    // Obtener la cantidad de días del mes actual
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-  const entries = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    // Generar etiquetas para los días del mes actual
+    const generatedLabels = Array.from(
+      { length: daysInMonth },
+      (_, i) => `${months[currentMonth]} - Day ${i + 1}`
+    );
+    setLabels(generatedLabels);
 
-  const exits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    // Procesar datos reales para entradas y salidas
+    const generatedEntries = Array.from({ length: daysInMonth }, (_, day) => {
+      const date = new Date(currentYear, currentMonth, day + 1).toISOString().split("T")[0];
+      const inflowForDay = balancesData.balancesData.inflow
+      .filter((entry) => entry.date === date)
+      .reduce((acc, entry) => acc + entry.amount, 0);
+      return inflowForDay || 0;
+    });
 
+    const generatedExits = Array.from({ length: daysInMonth }, (_, day) => {
+      const date = new Date(currentYear, currentMonth, day + 1).toISOString().split("T")[0];
+      const outflowForDay = balancesData.balancesData.outflow
+      .filter((exit) => exit.date === date)
+      .reduce((acc, exit) => acc + exit.amount, 0);
+      return outflowForDay || 0;
+    });
+
+    setEntries(generatedEntries);
+    setExits(generatedExits);
+  }, [balancesData]);
 
   const data = {
     labels,
@@ -117,7 +147,10 @@ export function LineChart() {
   return (
     <>
       <div className="mt-10 w-full h-fit px-3">
-        <Line options={options} data={data} className="rounded-b-[1.8rem]"></Line>
+        <Line
+          options={options}
+          data={data}
+        ></Line>
       </div>
     </>
   );

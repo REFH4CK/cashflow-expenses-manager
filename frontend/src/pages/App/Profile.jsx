@@ -30,11 +30,10 @@ export function Profile() {
               country={user.country}
               username={user.username}
               reputation={user.reputation}
-              limit={user.spend_limit}
             ></ProfileInfo>
           </article>
 
-          <article className="bg-[#28303E] w-[80%] h-[28rem] rounded-3xl shadow shadow-tree-poppy-700/50">
+          <article className="bg-[#28303E] w-[80%] rounded-3xl shadow shadow-tree-poppy-700/50">
             <ProfileConfig
               id={user.id}
               name={user.name}

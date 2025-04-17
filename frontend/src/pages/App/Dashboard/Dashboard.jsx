@@ -5,6 +5,7 @@ import { AsideBar } from "@/components/App/AsideBar";
 import { Saluting } from "@/icons/Dashboard/Saluting.jsx";
 import { Balance } from "@/components/App/Balance";
 import { LastMov } from "@/components/App/LastMov";
+import { Fade } from "react-awesome-reveal";
 
 export function Dashboard() {
   const { user, logout } = useAuth();
@@ -31,13 +32,23 @@ export function Dashboard() {
     <section className={`bg-[#1F252F] h-screen flex`}>
       <AsideBar log={handleLogout} />
 
-      <article className="flex flex-col items-center justify-center h-screen w-full px-32 py-16">
-        <h1 className="flex items-center gap-4 w-full h-fit text-oxford-blue-200 font-lexend font-bold text-[30px]">
-          Hey, @{user.username}! <Saluting fill={"#D3DAE4"} />
-        </h1>
+      <article className="flex flex-col items-center justify-center h-screen w-full px-32 py-16 overflow-hidden">
+        <Fade className="w-full" direction="left" triggerOnce>
+          <h1 className="flex items-center gap-4 w-full h-fit text-oxford-blue-200 font-lexend font-bold text-[30px]">
+            Hey, @{user.username}! <Saluting fill={"#D3DAE4"} />
+          </h1>
+        </Fade>
 
         <Balance UID={user.id}></Balance>
-        <LastMov UID={user.id}></LastMov>
+
+        <Fade
+          className="w-full h-full mt-8"
+          delay={600}
+          direction="up"
+          triggerOnce
+        >
+          <LastMov UID={user.id}></LastMov>
+        </Fade>
       </article>
     </section>
   );

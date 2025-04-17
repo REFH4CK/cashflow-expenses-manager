@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { useState, useEffect, useCallback } from "react";
-// import { Fade } from "react-awesome-reveal";
 
 export function LastMov({ UID }) {
   const [movements, setMovements] = useState([]);
@@ -36,15 +35,16 @@ export function LastMov({ UID }) {
 
   return (
     <>
-      <h3 className="w-full text-oxford-blue-200 font-lexend font-bold text-[25px]">
+      <h3 className="w-full text-oxford-blue-200 font-lexend font-bold text-[24px]">
         Last movements
       </h3>
       <div className="w-full h-[0.4rem] bg-[#DE7101]/30 rounded-full mb-4"></div>
-        <section className="max-w-[1440px] h-[65%] w-full bg-[#334051] rounded-3xl overflow-hidden">
-          <table
-            className="w-full border-oxford-blue-500 font-baloo text-[#728CB0]"
-            border={1}
-          >
+      <section className="max-w-[1440px] h-[16.2rem] w-full bg-[#334051] rounded-xl overflow-hidden">
+        <table
+          className="w-full border-oxford-blue-500 font-baloo text-[#728CB0]"
+          border={1}
+        >
+          <thead>
             <tr className="border-b">
               <th className="p-[0.55rem] border-r">Quantity</th>
               <th className="p-[0.55rem] border-r">Currency</th>
@@ -52,6 +52,8 @@ export function LastMov({ UID }) {
               <th className="p-[0.55rem] border-r">Movement type</th>
               <th className="p-[0.55rem]">Date</th>
             </tr>
+          </thead>
+          <tbody>
             {movements != "" ? (
               movements.map((mov, i) => (
                 <tr key={i} className="text-center border-b">
@@ -77,8 +79,9 @@ export function LastMov({ UID }) {
                 </td>
               </tr>
             )}
-          </table>
-        </section>
+          </tbody>
+        </table>
+      </section>
     </>
   );
 }
