@@ -13,3 +13,4 @@ export const lastMovements = async (UID) => {
 
   return data;
 };
+
