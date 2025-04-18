@@ -49,3 +49,18 @@
   top: -15px;
   left: -20px;
 }
+
+.mask-fade-out {
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 5%,
+    transparent 95%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%
+    black 5%,
+    transparent 95%
+  );
+}
