@@ -47,6 +47,9 @@ export function ProfileInfo({
               <img
                 src={`${profile[0].profile_photo != '' ? `http://localhost:3000/cashflow/api${profile[0].profile_photo}` : 'https://placehold.co/200x200'}`}
                 alt={`Profile photo of ${username}`}
+                onError={(e) => {
+                  e.target.src = 'https://placehold.co/200x200';
+                }}
                 className="rounded-full"
               />
             </div>
