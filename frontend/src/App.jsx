@@ -9,7 +9,7 @@ import { Profile } from "@/pages/App/Profile"
 import { RegisterFlow } from "@/pages/App/RegisterFlow"
 import { CashStats } from "@/pages/App/CashStats"
 import { GenReport } from "@/pages/App/GenReport"
-import { Settings } from "@/pages/App/Settings"
+import { SettingsPage } from "@/pages/App/SettingsPage"
 
 import { InitialStep } from "@/pages/App/SetupAcc/InitialStep.jsx";
 
@@ -73,7 +73,7 @@ function App() {
           path="/settings"
           element={
             <ProtectedRoute>
-              <Settings />
+              <SettingsPage />
             </ProtectedRoute>
           }
         />
