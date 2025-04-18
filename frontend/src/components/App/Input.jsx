@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
 export function Input({ type, id, onChange, placeholder, className, name, value }) {
+
   const handleChange = (e) => {
-    // Asegura que el evento tenga la estructura esperada
     const syntheticEvent = {
       target: {
         name: name,
@@ -16,7 +16,7 @@ export function Input({ type, id, onChange, placeholder, className, name, value 
     <input
       type={type}
       id={id}
-      onChange={handleChange} // Usa nuestro manejador seguro
+      onChange={handleChange}
       placeholder={placeholder}
       className={className}
       name={name}
