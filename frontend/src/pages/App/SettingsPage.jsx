@@ -1,4 +1,5 @@
 import { AsideBar } from "@/components/App/AsideBar";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "@/context/useAuth";
 import { toast } from "@pheralb/toast";
@@ -10,6 +11,9 @@ import cryptoModule from "@/assets/images/cryptoModule.png";
 export function SettingsPage() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    limit: user.spend_limit
+  });
 
   const handleLogout = () => {
     logout();
@@ -19,6 +23,55 @@ export function SettingsPage() {
     });
     navigate("/login");
   };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { limit } = formData;
+    const data = {
+      limit: parseFloat(limit),
+      UID: user.id,
+    };
+
+    fetch("http://localhost:3000/cashflow/api/spend_limit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        toast.success({
+          text: "Changes saved successfully!",
+          description: "Your spend limit has been updated.",
+        });
+        setFormData({ limit: data.spend_limit });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        toast.error({
+          text: "Please fill in all fields",
+        });
+      });
+    
+
+  };
+
+
   return (
     <>
       <section className={`bg-[#1F252F] h-screen flex`}>
@@ -34,7 +87,7 @@ export function SettingsPage() {
               </header>
               <div className="h-[0.10rem] w-[90%] bg-[#9E5000]/80 mx-auto rounded-full"></div>
               <article className="">
-                <form className="flex flex-col p-10 pt-4 items-center">
+                <form className="flex flex-col p-10 pt-4 items-center" onSubmit={handleSubmit}>
                   <h2 className="text-center p-8 w-[50%] text-xl mx-auto font-baloo font-semibold text-[#ee9740]">
                     Keep in mind that this will lower your reputation as a
                     CashFlow Saver.
@@ -42,10 +95,10 @@ export function SettingsPage() {
                   <FormGroup
                     label={"Spend Limit"}
                     name={"limit"}
-                    value={""}
                     type={"text"}
-                    onChange={""}
-                    placeholder={"0.00"}
+                    value={formData.limit}
+                    onChange={handleChange}
+                    placeholder={`Your actual limit is ${user.spend_limit}`}
                   />
                   <button className="px-4 py-2 rounded-xl mt-4 bg-oxford-blue-700 text-[0.9rem] font-k2d font-semibold text-white/80 hover:bg-oxford-blue-600 transition duration-200 ease-in-out">
                     Save Changes

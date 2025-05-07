@@ -11,6 +11,7 @@ import { lastMovementsData } from '../controllers/accountData.js'
 import { balanceData } from '../controllers/balanceData.js'
 import { savingsStatsController } from "../controllers/savingsData.js";
 import { movementsReport } from '../controllers/getAllMovements.js';
+import { limitSpend } from '../controllers/limitSpend.js';
 
 const router = express.Router();
 
@@ -33,6 +34,7 @@ router.post('/cashflow/api/register', register);
 
 router.post('/cashflow/api/completed-profile', updateProfile);
 router.post('/cashflow/api/acc_data', accountData);
+router.post('/cashflow/api/spend_limit', limitSpend);
 router.post("/cashflow/api/last_movs", lastMovementsData);
 router.post("/cashflow/api/update_profile", applyProfileChanges);
 router.post("/cashflow/api/update_balance", balanceData);
