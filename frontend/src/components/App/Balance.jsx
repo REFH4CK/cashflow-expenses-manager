@@ -38,13 +38,13 @@ export function Balance({ UID }) {
 
   return (
     <>
-      <section className="w-full max-w-[1440px] h-[36rem] flex sm:justify-center md:justify-normal gap-[2rem] flex-wrap pt-8">
-        <Fade cascade damping={0.1} direction="up" triggerOnce className="relative">
+      <section className="w-full max-w-[1440px] h-[36rem] flex md:justify-normal gap-[2rem] flex-wrap pt-8">
+        <Fade cascade damping={0.1} direction="up" triggerOnce className="relative sm:w-full md:w-fit">
           {Array.isArray(balance) && balance.length > 0 ? (
             balance.map((b, i) => (
               <article
                 key={i}
-                className="sm:w-[24rem] sm:h-[10rem] md:w-[18rem] md:h-[22rem] bg-oxford-blue-900 rounded-3xl sm:pt-4 md:pt-8 overflow-hidden sm:flex md:block"
+                className="sm:w-full sm:h-[10rem] md:w-[18rem] md:h-[22rem] bg-oxford-blue-900 rounded-3xl sm:pt-4 md:pt-8 overflow-hidden sm:flex md:block"
               >
                 <h2 className="text-[#596F8C] font-lexend font-semibold text-3xl sm:pr-0 px-6">
                   <span className="md:w-[8rem] sm:text-[1.30rem] md:text-3xl block">

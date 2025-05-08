@@ -96,6 +96,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
                 name="name"
                 value={name}
                 onChange={() => {}}
+                width="20"
                 readOnly
               />
               <FormGroup
@@ -104,6 +105,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
                 name="username"
                 value={`@${username}`}
                 onChange={() => {}}
+                width="20"
                 readOnly
               />
             </div>

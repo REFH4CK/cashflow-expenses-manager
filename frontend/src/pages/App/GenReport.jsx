@@ -117,14 +117,14 @@ export function GenReport() {
     <>
       <section className={`bg-[#1F252F] h-screen flex`}>
         <AsideBar log={handleLogout} />
-        <section className="flex flex-col gap-8 items-center w-full sm:py-[2rem] md:pt-[4rem] overflow-hidden sm:overflow-y-auto md:overflow-hidden">
+        <section className="flex flex-col sm:gap-4 md:gap-8 items-center w-full sm:p-4 md:p-0 sm:pt-[2rem] md:pt-[4rem] sm:overflow-y-auto md:overflow-y-hidden">
           <Fade className="w-full" triggerOnce direction="left">
-            <h2 className="text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full sm:pl-4 md:pl-16">
+            <h2 className="text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full sm:pl-0 md:pl-16">
               Savings reports
             </h2>
           </Fade>
-          <Fade triggerOnce direction="up">
-            <article className="bg-[#28303E] rounded-xl sm:w-[27rem] sm:h-fit md:w-[67rem] md:h-[42rem]">
+          <Fade triggerOnce direction="up" className="sm:w-full md:w-fit">
+            <article className="bg-[#28303E] rounded-xl sm:w-full sm:h-fit md:w-[67rem] md:h-[42rem]">
               <header className="pb-6 border-b border-oxford-blue-600/50">
                 <form className="pt-8 pl-6" onSubmit={handleSubmit}>
                   <div className="flex items-end gap-4 flex-wrap">
@@ -135,6 +135,7 @@ export function GenReport() {
                         name="date"
                         value={filters.date}
                         onChange={handleInputChange}
+                        width="6"
                       />
                       <FormGroup
                         type="text"
@@ -143,6 +144,7 @@ export function GenReport() {
                         placeholder="Search by description"
                         value={filters.description}
                         onChange={handleInputChange}
+                        width="5"
                       />
                       <CurrencySelect
                         id={user.id}
@@ -171,7 +173,7 @@ export function GenReport() {
                       </div>
                       <button
                         type="submit"
-                        className="bg-[#50759C] p-2 rounded-xl hover:bg-[#507fb1] transition-colors flex gap-2 sm:w-[24rem] md:w-fit justify-center"
+                        className="bg-[#50759C] p-2 rounded-xl hover:bg-[#507fb1] transition-colors flex gap-2 sm:w-[20rem] md:w-fit justify-center"
                       >
                         <span className="md:hidden text-[#C5D1DE] font-lexend">Search</span>
                         <img

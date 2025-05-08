@@ -34,9 +34,9 @@ export function Dashboard() {
       <section className={`bg-[#1F252F] h-screen flex w-full outline outline-[#fff]/10 outline-1`}>
         <AsideBar log={handleLogout} />
 
-        <article className="flex flex-col items-center justify-center h-[100dvh] w-full md:px-32 md:py-16 sm:overflow-x-hidden md:overflow-hidden max-w-[1440px] sm:px-4 sm:py-8">
+        <article className="flex flex-col items-center sm:justify-start md:justify-center h-[100dvh] w-full md:px-32 md:py-16 sm:overflow-x-hidden md:overflow-hidden max-w-[1440px] sm:px-4 sm:py-8">
           <Fade className="w-full" direction="left" triggerOnce>
-            <h1 className="flex items-center gap-4 w-full h-fit text-oxford-blue-200 font-lexend font-bold text-[30px] sm:mt-[24rem] md:mt-0">
+            <h1 className="flex items-center gap-4 w-full h-fit text-oxford-blue-200 font-lexend font-bold text-[30px] md:mt-0">
               Hey, @{user.username}! <Saluting fill={"#D3DAE4"} />
             </h1>
           </Fade>

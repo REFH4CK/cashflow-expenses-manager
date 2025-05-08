@@ -74,9 +74,9 @@ export function SettingsPage() {
     <>
       <section className={`bg-[#1F252F] h-screen flex`}>
         <AsideBar log={handleLogout} />
-        <section className="flex flex-col gap-8 items-center w-full sm:pt-[2rem] md:pt-[8rem] overflow-hidden">
+        <section className="flex flex-col gap-8 items-center w-full sm:p-4 sm:pt-[2rem] md:pt-[8rem] overflow-hidden">
           <Fade className="w-full" triggerOnce direction="up">
-            <article className="bg-[#28303E] sm:w-[27rem] sm:h-[35rem] md:w-[80%] md:h-[40rem] rounded-3xl shadow shadow-tree-poppy-700/50 mx-auto">
+            <article className="bg-[#28303E] sm:w-full sm:h-[35rem] md:w-[80%] md:h-[40rem] rounded-3xl shadow shadow-tree-poppy-700/50 mx-auto">
               <header className="flex gap-4 p-10 pb-4 items-center">
                 <Settings />
                 <h1 className="font-lexend text-oxford-blue-200 text-3xl font-bold">
@@ -103,11 +103,11 @@ export function SettingsPage() {
                   </button>
                 </form>
               </article>
-              <article className="flex items-center justify-center w-full sm:h-[19%] md:h-[30%] relative">
+              <article className="flex items-center justify-center w-full sm:h-[35%] md:h-[30%] relative">
                 <h3 className="text-center sm:text-xl md:text-3xl mb-6 font-baloo font-bold text-tree-poppy-100 z-10">
                   🚧 Coming Soon... 🚧
                 </h3>
-                <div className="absolute w-full h-full bottom-0 mask-fade-out">
+                <div className="absolute p-4 w-full h-full bottom-0 mask-fade-out">
                   <img
                     src={cryptoModule}
                     alt="Crypto images with differents currencies logo"

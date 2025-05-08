@@ -74,7 +74,7 @@ export function AllMovements({
                 <td className="py-[0.718rem] px-6 font-lexend font-light">
                   {movement.prefer_currency}
                 </td>
-                <td className="py-[0.718rem] px-6 font-lexend font-light">
+                <td className="py-[0.718rem] px-6 sm:text-sm md:text-base font-lexend font-light">
                   {movement.description}
                 </td>
                 <td className="py-[0.718rem] px-6 font-lexend font-light">

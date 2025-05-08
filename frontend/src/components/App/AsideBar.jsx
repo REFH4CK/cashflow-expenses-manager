@@ -11,8 +11,8 @@ import { Settings } from "@/icons/Dashboard/Settings.jsx";
 import logo from "@/assets/cashflow-logo.svg";
 
 export function AsideBar({ log }) {
-  const location = useLocation(); // Obtiene la ruta actual
-  const currentPath = location.pathname; // Extrae el pathname de la ruta
+  const location = useLocation();
+  const currentPath = location.pathname; // Extraer pathname de la ruta
 
   const iconList = [
     { icon: Wallet, text: "Dashboard", path: "/dashboard" },
@@ -72,7 +72,7 @@ export function AsideBar({ log }) {
               onClick={log}
               className="cursor-pointer text-[#6C86A8] flex gap-5 items-center font-semibold font-lexend text-[.9rem] relative"
             >
-              <Logout /> {/* No se pasa la propiedad fill */}
+              <Logout />
               <span
                 className={`transition-all absolute left-[3.5rem] top-1/2 transform -translate-y-1/2 whitespace-nowrap`}
               >

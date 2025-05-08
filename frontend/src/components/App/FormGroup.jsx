@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 
-export function FormGroup({ label, name, value, type, onChange, placeholder }) {
+export function FormGroup({ label, name, value, type, onChange, placeholder, width = "" }) {
   return (
     <>
       <div className="flex flex-col">
@@ -12,10 +12,11 @@ export function FormGroup({ label, name, value, type, onChange, placeholder }) {
           type={type}
           id={name}
           placeholder={placeholder}
-          name={name} // Asegúrate de pasar el `name`
-          value={value || ""} // Siempre usa una cadena, incluso si está vacía
-          className="bg-oxford-blue-700 md:w-[14rem] text-white/65 rounded-lg p-2 px-3"
+          name={name}
+          value={value || ""}
+          className={`bg-oxford-blue-700 sm:w-[${width}rem] md:w-[14rem] text-white/65 rounded-lg p-2 px-3`}
           onChange={onChange}          
+          autoComplete="off"
         />
       </div>
     </>
@@ -28,5 +29,6 @@ FormGroup.propTypes = {
   value: PropTypes.string,
   type: PropTypes.string,
   onChange: PropTypes.func,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  width: PropTypes.string,
 };

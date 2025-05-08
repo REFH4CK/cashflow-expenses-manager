@@ -99,11 +99,11 @@ export function RegisterFlow() {
       <section className={`bg-[#1F252F] h-screen flex`}>
         <AsideBar log={handleLogout} />
 
-        <section className="flex flex-col gap-8 items-center w-full sm:pt-[4rem] md:pt-[8rem]">
+        <section className="flex flex-col gap-8 items-center w-full sm:pt-[4rem] sm:px-4 md:pt-[8rem]">
           <h2 className="text-4xl font-semibold font-lexend text-oxford-blue-200">
             Register cash {label}
           </h2>
-          <article className="bg-[#28303E] rounded-xl sm:w-[25rem] sm:h-fit md:w-[45rem] md:h-[25rem] overflow-hidden">
+          <article className="bg-[#28303E] rounded-xl sm:w-full sm:h-[35rem] md:w-[45rem] md:h-[25rem] overflow-hidden">
             <div className="bg-[#4C617D]/20 w-72 mx-auto p-4 flex justify-center gap-6 rounded-b-2xl">
               <button
                 onClick={() => handleLabel("inflow")}
@@ -127,11 +127,11 @@ export function RegisterFlow() {
               </button>
             </div>
             <form
-              className="flex flex-col items-center justify-center h-[80%] sm:gap-4 md:gap-10 sm:py-[1rem] sm:mt-[1rem] md:py-0 md:mt-0"
+              className="flex flex-col items-center justify-center h-[80%] sm:gap-6 md:gap-10 sm:py-[1rem] sm:mt-[1rem] md:py-0 md:mt-0"
               onSubmit={handleCashData}
             >
               <Fade triggerOnce direction="up" cascade damping={0.25}>
-                <div className="flex sm:gap-4 md:gap-16 sm:flex-col md:flex-row">
+                <div className="flex sm:gap-6 md:gap-16 sm:flex-col md:flex-row">
                   <FormGroup
                     label={"Quantity"}
                     type={"text"}
@@ -139,6 +139,7 @@ export function RegisterFlow() {
                     name={"quantity"}
                     placeholder={"0.0"}
                     value={cashData.quantity}
+                    width="20"
                     onChange={handleInputChange}
                   />
                   <CurrencySelect
@@ -147,7 +148,7 @@ export function RegisterFlow() {
                     onChange={handleInputChange}
                   />
                 </div>
-                <div className="flex sm:gap-4 md:gap-16 sm:flex-col md:flex-row">
+                <div className="flex sm:gap-6 md:gap-16 sm:flex-col md:flex-row">
                   <FormGroup
                     label={"Description"}
                     type={"text"}
@@ -155,6 +156,7 @@ export function RegisterFlow() {
                     name={"description"}
                     placeholder={"ex. shopping, food, etc."}
                     value={cashData.description}
+                    width="20"
                     onChange={handleInputChange}
                   />
                   <FormGroup
@@ -163,12 +165,13 @@ export function RegisterFlow() {
                     id={"date"}
                     name={"date"}
                     value={cashData.date}
+                    width="20"
                     onChange={handleInputChange}
                   />
                 </div>
                 <button
                   type="submit"
-                  className="font-lexend font-semibold bg-[#50759C] py-3 px-16 rounded-xl hover:bg-[#507fb1] transition-colors"
+                  className="font-lexend font-semibold bg-[#50759C] py-3 px-16 rounded-xl hover:bg-[#507fb1] transition-colors sm:mt-[2rem] md:mt-0"
                 >
                   Add record
                 </button>
