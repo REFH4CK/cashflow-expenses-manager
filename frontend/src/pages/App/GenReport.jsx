@@ -53,7 +53,7 @@ export function GenReport() {
           body: JSON.stringify({
             ...filters,
             page: page,
-            perPage: 10,
+            perPage: 9,
           }),
         }
       );
@@ -77,7 +77,7 @@ export function GenReport() {
         movements: [],
         pagination: {
           page: 1,
-          perPage: 10,
+          perPage: 9,
           total: 0,
           totalPages: 1,
         },
@@ -117,17 +117,17 @@ export function GenReport() {
     <>
       <section className={`bg-[#1F252F] h-screen flex`}>
         <AsideBar log={handleLogout} />
-        <section className="flex flex-col gap-8 items-center w-full pt-[4rem] overflow-hidden">
+        <section className="flex flex-col gap-8 items-center w-full sm:py-[2rem] md:pt-[4rem] overflow-hidden sm:overflow-y-auto md:overflow-hidden">
           <Fade className="w-full" triggerOnce direction="left">
-            <h2 className="text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full pl-16">
+            <h2 className="text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full sm:pl-4 md:pl-16">
               Savings reports
             </h2>
           </Fade>
           <Fade triggerOnce direction="up">
-            <article className="bg-[#28303E] rounded-xl w-[67rem] h-[44.8rem] overflow-hidden">
+            <article className="bg-[#28303E] rounded-xl sm:w-[27rem] sm:h-fit md:w-[67rem] md:h-[42rem]">
               <header className="pb-6 border-b border-oxford-blue-600/50">
                 <form className="pt-8 pl-6" onSubmit={handleSubmit}>
-                  <div className="flex items-end gap-4">
+                  <div className="flex items-end gap-4 flex-wrap">
                     <Fade triggerOnce cascade damping={0.2}>
                       <FormGroup
                         type="date"
@@ -160,7 +160,7 @@ export function GenReport() {
                         <select
                           name="movement_type"
                           id="movement_type"
-                          className="bg-oxford-blue-700 w-[14rem] h-[2.5rem] text-white/65 rounded-lg p-2 px-3"
+                          className="bg-oxford-blue-700 md:w-[14rem] h-[2.5rem] text-white/65 rounded-lg p-2 px-3"
                           value={filters.movement_type}
                           onChange={handleInputChange}
                         >
@@ -171,8 +171,9 @@ export function GenReport() {
                       </div>
                       <button
                         type="submit"
-                        className="bg-[#50759C] p-2 rounded-xl hover:bg-[#507fb1] transition-colors"
+                        className="bg-[#50759C] p-2 rounded-xl hover:bg-[#507fb1] transition-colors flex gap-2 sm:w-[24rem] md:w-fit justify-center"
                       >
+                        <span className="md:hidden text-[#C5D1DE] font-lexend">Search</span>
                         <img
                           src="https://img.icons8.com/?size=100&id=131&format=png&color=C5D1DE"
                           alt="Search icon"
@@ -183,7 +184,7 @@ export function GenReport() {
                   </div>
                 </form>
               </header>
-              <section className="relative h-[37rem]">
+              <section className="relative sm:h-[36.5rem] md:h-[34rem] flex items-start justify-center w-full">
                 <AllMovements
                   movements={responseData.movements}
                   pagination={responseData.pagination}

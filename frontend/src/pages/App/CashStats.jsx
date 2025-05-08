@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { toast } from "@pheralb/toast";
-import { useState, useCallback, useEffect } from "react";
+import { useState } from "react";
 
 import { useAuth } from "@/context/useAuth";
 import { AsideBar } from "@/components/App/AsideBar";
@@ -46,7 +46,7 @@ export function CashStats() {
       toast.error({ text: "Please select a currency" });
       return;
     }
-    fetchSavingsStats(); // Forzar actualización al enviar el formulario
+    fetchSavingsStats(); 
   };
 
 
@@ -74,7 +74,6 @@ export function CashStats() {
       
       const result = await response.json();
       
-      // Verifica profundamente la estructura de la respuesta
       if (!result || !result.data) {
         throw new Error("Invalid response structure");
       }
@@ -83,11 +82,10 @@ export function CashStats() {
       
       setLabels(labels);
       setEntries(entries);
-      setExits(exits.map(exit => -Math.abs(exit))); // Solo mapea si exits existe
+      setExits(exits.map(exit => -Math.abs(exit)));
       
     } catch (error) {
       console.error("Fetch error:", error);
-      // Resetea los estados a arrays vacíos
       setLabels([]);
       setEntries([]);
       setExits([]);
@@ -102,14 +100,14 @@ export function CashStats() {
     <>
       <section className={`bg-[#1F252F] h-screen flex`}>
         <AsideBar log={handleLogout} />
-        <section className="flex flex-col gap-8 items-center w-full pt-[6rem]">
-          <h2 className="text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full pl-16">
+        <section className="flex flex-col gap-8 items-center w-full sm:pt-[2rem] md:pt-[6rem]">
+          <h2 className="text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full sm:pl-8 md:pl-16">
             Savings stats
           </h2>
-          <article className="bg-[#28303E] rounded-xl w-[65rem] h-[40rem] overflow-hidden">
+          <article className="bg-[#28303E] rounded-xl sm:w-[27rem] md:w-[65rem] h-[40rem] overflow-hidden">
             <header>
               <form
-                className="flex items-end gap-4 pt-6 pl-12"
+                className="flex w-full sm:items-center sm:flex-wrap md:flex-row md:items-end gap-4 pt-6 pl-12"
                 onSubmit={handleSavingFilters}
               >
                 <div className="flex flex-col">
@@ -123,7 +121,7 @@ export function CashStats() {
                     type="date"
                     id="from_date"
                     onChange={handleInputChange}
-                    className="bg-oxford-blue-700 w-[14rem] text-white/65 rounded-lg p-2 px-3"
+                    className="bg-oxford-blue-700  md:w-[14rem] text-white/65 rounded-lg p-2 px-3"
                     name="from_date"
                     value={filters.from_date}
                   />
@@ -139,7 +137,7 @@ export function CashStats() {
                     type="date"
                     id="to_date"
                     onChange={handleInputChange}
-                    className="bg-oxford-blue-700 w-[14rem] text-white/65 rounded-lg p-2 px-3"
+                    className="bg-oxford-blue-700 md:w-[14rem] text-white/65 rounded-lg p-2 px-3"
                     name="to_date"
                     value={filters.to_date}
                   />
@@ -151,7 +149,7 @@ export function CashStats() {
                     onChange={handleInputChange}
                   />
                 </div>
-                <button className="bg-[#50759C] p-2 rounded-xl hover:bg-[#507fb1] transition-colors">
+                <button className="bg-[#50759C] p-2 rounded-xl hover:bg-[#507fb1] transition-colors sm:w-[4rem] sm:py-[1.2rem] md:py-2 flex items-center justify-center">
                   <img
                     src="https://img.icons8.com/?size=100&id=131&format=png&color=C5D1DE"
                     alt="Search icon"

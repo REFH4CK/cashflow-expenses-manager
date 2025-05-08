@@ -25,11 +25,11 @@ export function AsideBar({ log }) {
   return (
     <>
       <aside
-        className={`relative bg-[#28303E] w-[20rem] h-screen transition-all duration-300`}
+        className={`relative bg-[#28303E] sm:w-[5rem] md:w-[20rem] h-screen transition-all duration-300`}
       >
         <ul className="flex flex-col h-screen items-center justify-between p-6 overflow-hidden relative">
           <article className="flex flex-col gap-8 w-full mt-[8rem]">
-            <li className="flex items-center justify-between absolute top-0 left-0 bg-[#977d5773] w-full pt-4 pl-4">
+            <li className="flex items-center justify-between absolute top-0 left-0 bg-[#977d5773] w-full pt-4 pl-4 sm:pt-2 sm:pl-0">
               <img src={logo} alt="CashFlow Logo" className="w-[6rem]" />
               <h3></h3>
             </li>
@@ -39,13 +39,13 @@ export function AsideBar({ log }) {
 
               return (
                 <li key={i} className={`flex gap-5 relative`}>
-                  <IconComponent fill={isActive ? "#DE7101" : undefined} />
                   <Link
                     className={`cursor-pointer ${
                       isActive ? "text-[#e98e2f]" : "text-[#6C86A8]"
-                    } flex gap-5 items-center font-semibold font-lexend text-[.9rem] absolute left-[3.5rem] top-1/2 transform -translate-y-1/2 w-[10rem] whitespace-nowrap`}
+                    } flex gap-5 items-center font-semibold font-lexend text-[.9rem] whitespace-nowrap`}
                     to={icon.path}
                   >
+                    <IconComponent fill={isActive ? "#DE7101" : undefined} />
                     {icon.text}
                   </Link>
                 </li>
@@ -54,18 +54,17 @@ export function AsideBar({ log }) {
           </article>
           <article className="flex flex-col gap-8 w-full">
             <span className="text-[#6C86A8] flex gap-5 items-center font-semibold font-lexend text-[.9rem] relative">
-              <Settings
-                fill={currentPath === "/settings" ? "#DE7101" : undefined}
-              />{" "}
-              {/* Aplica el color solo si está activo */}
               <Link
-                className={`transition-all absolute left-[3.5rem] top-1/2 transform -translate-y-1/2 whitespace-nowrap ${
+                className={`flex items-center gap-5 transition-all whitespace-nowrap ${
                   currentPath === "/settings"
                     ? "text-[#e98e2f]"
                     : "text-[#6C86A8]"
                 }`}
                 to={"/settings"}
               >
+                <Settings
+                  fill={currentPath === "/settings" ? "#DE7101" : undefined}
+                />
                 Settings
               </Link>
             </span>

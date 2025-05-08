@@ -39,7 +39,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
       }
 
       const result = await response.json();
-      console.log("Succesfully: Profile updated!");
+      console.log("Succesfully: Profile updated!: ", result);
       toast.success({
         text: "Profile updated!",
         description: "Your profile has been updated successfully.",
@@ -85,11 +85,11 @@ export function ProfileConfig({ photo, id, name, country, username }) {
       </header>
       <section className="h-fit relative">
         <form
-          className="flex flex-col items-center justify-center gap-6 pb-6 overflow-hidden h-full"
+          className="flex flex-col items-center justify-center sm:gap-2 md:gap-6 pb-6 overflow-hidden h-full"
           onSubmit={handleSubmit}
         >
           <Fade triggerOnce direction="up" damping={0.25} cascade>
-            <div className="flex gap-28">
+            <div className="flex sm:flex-col sm:gap-2 md:flex-row md:gap-28">
               <FormGroup
                 type={"text"}
                 label={"Your fullname"}
@@ -107,7 +107,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
                 readOnly
               />
             </div>
-            <div className="flex gap-28">
+            <div className="flex sm:flex-col sm:gap-2 md:flex-row md:gap-28">
               <FormGroup
                 type={"file"}
                 label={
@@ -125,7 +125,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
                   src={preview}
                   alt="Preview"
                   id="preview_pi"
-                  className="size-28 rounded-full object-cover absolute -left-32 -top-4"
+                  className="sm:size-16 sm:-left-20 sm:-top-4 md:size-28 md:-left-32 md:-top-4 rounded-full object-cover absolute "
                 />
               )}
               <FormGroup
@@ -143,7 +143,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
               </label>
               <textarea
                 name="description"
-                className="text-white/65 resize-none w-[25rem] p-4 bg-oxford-blue-700 rounded-xl"
+                className="text-white/65 resize-none sm:w-[20rem] md:w-[25rem] p-4 bg-oxford-blue-700 rounded-xl"
                 id="description"
                 value={formData.description}
                 onChange={handleChange}

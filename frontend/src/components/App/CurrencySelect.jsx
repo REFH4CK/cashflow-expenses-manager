@@ -37,7 +37,7 @@ export function CurrencySelect({ id, value, onChange, name = "id_currency" }) {
       <select
         name={name}
         id="id_currency"
-        className="bg-oxford-blue-700 w-[14rem] h-[2.5rem] text-white/65 rounded-lg p-2 px-3"
+        className="bg-oxford-blue-700 md:w-[14rem] h-[2.5rem] text-white/65 rounded-lg p-2 px-3"
         value={value}
         onChange={(e) => onChange(e)}
       >

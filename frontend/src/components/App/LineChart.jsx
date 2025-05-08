@@ -146,8 +146,9 @@ export function LineChart(balancesData) {
 
   return (
     <>
-      <div className="mt-10 w-full h-fit px-3">
+      <div className="sm:mt-14 md:mt-10 w-full h-fit px-3">
         <Line
+          className="sm:w-[252px] sm:h-[126px]"
           options={options}
           data={data}
         ></Line>

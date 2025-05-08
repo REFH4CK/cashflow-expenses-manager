@@ -40,10 +40,10 @@ export function ProfileInfo({
 
   return (
     <>
-      <article className="flex justify-between p-12 items-center">
+      <article className="flex sm:flex-col md:flex-row justify-between sm:p-6 md:p-12 md:items-center">
         <div className="flex gap-4">
           <Fade triggerOnce>
-            <div className="size-[10rem] border-4 border-oxford-blue-700 rounded-full p-2">
+            <div className="sm:size-[7rem] md:size-[10rem] sm:border-2 md:border-4 border-oxford-blue-700 rounded-full p-2">
               <img
                 src={`${profile[0].profile_photo != '' ? `http://localhost:3000/cashflow/api${profile[0].profile_photo}` : 'https://placehold.co/200x200'}`}
                 alt={`Profile photo of ${username}`}
@@ -53,7 +53,7 @@ export function ProfileInfo({
                 className="rounded-full"
               />
             </div>
-            <div className="flex flex-col mt-6">
+            <div className="flex flex-col sm:mt-0 md:mt-6">
               <h2 className="text-3xl font-bold text-oxford-blue-200 font-baloo">
                 {name}{" "}
                 <ReactCountryFlag
@@ -78,11 +78,11 @@ export function ProfileInfo({
           </Fade>
         </div>
         <Fade triggerOnce delay={150}>
-          <div className="flex flex-col items-center bg-tree-poppy-500/15 p-8 w-[18rem] rounded-lg">
-            <h3 className="text-tree-poppy-100/60 font-bold text-2xl">
+          <div className="flex flex-col items-center bg-tree-poppy-500/15 sm:p-1 sm:w-full sm:mt-8 md:mt-0 md:p-8 md:w-[18rem] rounded-lg">
+            <h3 className="text-tree-poppy-100/60 font-bold sm:text-lg md:text-2xl">
               Savings reputation
             </h3>
-            <p className="text-[1.8rem] mt-4 font-bold font-lexend text-tree-poppy-400/60">
+            <p className="sm:text-[1.50rem] md:text-[1.8rem] md:mt-4 font-bold font-lexend text-tree-poppy-400/60">
               {reputation} PTS
             </p>
           </div>

@@ -39,9 +39,9 @@ export function LastMov({ UID }) {
         Last movements
       </h3>
       <div className="w-full h-[0.4rem] bg-[#DE7101]/30 rounded-full mb-4"></div>
-      <section className="max-w-[1440px] h-[16.2rem] w-full bg-[#334051] rounded-xl overflow-hidden">
+      <section className="max-w-[1440px] sm:h-fit md:h-[16.2rem] w-full bg-[#334051] rounded-xl overflow-hidden overflow-x-scroll">
         <table
-          className="w-full border-oxford-blue-500 font-baloo text-[#728CB0]"
+          className="w-full border-oxford-blue-500 font-baloo text-[#728CB0] "
           border={1}
         >
           <thead>

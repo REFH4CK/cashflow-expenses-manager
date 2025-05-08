@@ -20,10 +20,10 @@ export function Profile() {
 
   return (
     <>
-      <section className={`bg-[#1F252F] h-screen flex`}>
+      <section className={`bg-[#1F252F] h-screen w-full flex`}>
         <AsideBar log={handleLogout}></AsideBar>
-        <section className="flex flex-col gap-6 items-center justify-center w-full">
-          <article className="bg-[#28303E] w-[80%] h-[18rem] rounded-3xl shadow shadow-tree-poppy-700/50">
+        <section className={`flex flex-col gap-6 items-center md:justify-center w-full sm:overflow-y-auto overflow-x-hidden sm:pt-[2rem] md:pt-0 sm:pb-[1rem] sm:p-4 md:p-0 md:pb-0 `}>
+          <article className="bg-[#28303E] sm:w-full md:w-[80%] md:h-[18rem] rounded-3xl shadow shadow-tree-poppy-700/50">
             <ProfileInfo
               id={user.id}
               name={user.name}
@@ -33,7 +33,7 @@ export function Profile() {
             ></ProfileInfo>
           </article>
 
-          <article className="bg-[#28303E] w-[80%] rounded-3xl shadow shadow-tree-poppy-700/50">
+          <article className="bg-[#28303E] sm:w-full md:w-[80%] rounded-3xl shadow shadow-tree-poppy-700/50">
             <ProfileConfig
               id={user.id}
               name={user.name}

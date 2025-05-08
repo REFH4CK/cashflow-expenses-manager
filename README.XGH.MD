@@ -1,8 +1,8 @@
 # Frontend
 
-* Estructurar la interfaz de settings  
+* Estructurar la interfaz de settings  ✅
 
-* boton eliminar cuenta en settings
+* boton eliminar cuenta en settings aun no
 
 
 

@@ -67,8 +67,6 @@ export function SettingsPage() {
           text: "Please fill in all fields",
         });
       });
-    
-
   };
 
 
@@ -76,9 +74,9 @@ export function SettingsPage() {
     <>
       <section className={`bg-[#1F252F] h-screen flex`}>
         <AsideBar log={handleLogout} />
-        <section className="flex flex-col gap-8 items-center w-full pt-[8rem] overflow-hidden">
+        <section className="flex flex-col gap-8 items-center w-full sm:pt-[2rem] md:pt-[8rem] overflow-hidden">
           <Fade className="w-full" triggerOnce direction="up">
-            <article className="bg-[#28303E] w-[80%] h-[40rem] rounded-3xl shadow shadow-tree-poppy-700/50 mx-auto">
+            <article className="bg-[#28303E] sm:w-[27rem] sm:h-[35rem] md:w-[80%] md:h-[40rem] rounded-3xl shadow shadow-tree-poppy-700/50 mx-auto">
               <header className="flex gap-4 p-10 pb-4 items-center">
                 <Settings />
                 <h1 className="font-lexend text-oxford-blue-200 text-3xl font-bold">
@@ -88,7 +86,7 @@ export function SettingsPage() {
               <div className="h-[0.10rem] w-[90%] bg-[#9E5000]/80 mx-auto rounded-full"></div>
               <article className="">
                 <form className="flex flex-col p-10 pt-4 items-center" onSubmit={handleSubmit}>
-                  <h2 className="text-center p-8 w-[50%] text-xl mx-auto font-baloo font-semibold text-[#ee9740]">
+                  <h2 className="text-center p-8 md:w-[50%] text-xl mx-auto font-baloo font-semibold text-[#ee9740]">
                     Keep in mind that this will lower your reputation as a
                     CashFlow Saver.
                   </h2>
@@ -105,8 +103,8 @@ export function SettingsPage() {
                   </button>
                 </form>
               </article>
-              <article className="flex items-center justify-center w-full h-[30%] relative">
-                <h3 className="text-center text-3xl mb-6 font-baloo font-bold text-tree-poppy-100 z-10">
+              <article className="flex items-center justify-center w-full sm:h-[19%] md:h-[30%] relative">
+                <h3 className="text-center sm:text-xl md:text-3xl mb-6 font-baloo font-bold text-tree-poppy-100 z-10">
                   🚧 Coming Soon... 🚧
                 </h3>
                 <div className="absolute w-full h-full bottom-0 mask-fade-out">

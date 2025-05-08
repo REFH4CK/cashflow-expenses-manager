@@ -24,7 +24,7 @@ export function AllMovements({
   }
 
   return (
-    <div className="h-[calc(100%-4rem)] flex flex-col">
+    <div className="w-full h-[calc(100%-4rem)] flex flex-col">
       {/* Tabla de movimientos */}
       <div className="flex-grow overflow-y-hidden">
         <table className="w-full text-white/80">
