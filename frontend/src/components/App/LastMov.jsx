@@ -38,8 +38,17 @@ export function LastMov({ UID }) {
       <h3 className="w-full text-oxford-blue-200 font-lexend font-bold text-[24px]">
         Last movements
       </h3>
-      <div className="w-full h-[0.4rem] bg-[#DE7101]/30 rounded-full mb-4"></div>
-      <section className="max-w-[1440px] sm:h-fit md:h-[16.2rem] w-full bg-[#334051] rounded-xl overflow-hidden overflow-x-auto">
+      <div
+        className={`
+          w-[15.75rem] h-[0.3rem] bg-[#DE7101]/30 rounded-full mb-2
+          sm:w-full sm:h-[0.4rem] sm:mb-4`}
+      ></div>
+      <section
+        className={`
+          w-[15.75rem] max-w-[1440px] bg-[#334051] rounded-xl overflow-hidden overflow-x-auto
+          sm:h-fit sm:w-full
+          md:h-[16.2rem]`}
+      >
         <table
           className="w-full border-oxford-blue-500 font-baloo text-[#728CB0] "
           border={1}

@@ -78,7 +78,7 @@ export function LineChart(balancesData) {
       "November",
       "December",
     ];
-    
+
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
@@ -95,18 +95,22 @@ export function LineChart(balancesData) {
 
     // Procesar datos reales para entradas y salidas
     const generatedEntries = Array.from({ length: daysInMonth }, (_, day) => {
-      const date = new Date(currentYear, currentMonth, day + 1).toISOString().split("T")[0];
+      const date = new Date(currentYear, currentMonth, day + 1)
+        .toISOString()
+        .split("T")[0];
       const inflowForDay = balancesData.balancesData.inflow
-      .filter((entry) => entry.date === date)
-      .reduce((acc, entry) => acc + entry.amount, 0);
+        .filter((entry) => entry.date === date)
+        .reduce((acc, entry) => acc + entry.amount, 0);
       return inflowForDay || 0;
     });
 
     const generatedExits = Array.from({ length: daysInMonth }, (_, day) => {
-      const date = new Date(currentYear, currentMonth, day + 1).toISOString().split("T")[0];
+      const date = new Date(currentYear, currentMonth, day + 1)
+        .toISOString()
+        .split("T")[0];
       const outflowForDay = balancesData.balancesData.outflow
-      .filter((exit) => exit.date === date)
-      .reduce((acc, exit) => acc + exit.amount, 0);
+        .filter((exit) => exit.date === date)
+        .reduce((acc, exit) => acc + exit.amount, 0);
       return outflowForDay || 0;
     });
 
@@ -146,7 +150,12 @@ export function LineChart(balancesData) {
 
   return (
     <>
-      <div className="sm:mt-8 md:mt-10 w-full h-fit px-3 py-4 flex items-center justify-center sm:gap-4 md:gap-0">
+      <div
+        className={`
+          hidden w-full h-fit px-3 py-4 
+          sm:flex sm:mt-8 sm:gap-4 sm:items-center sm:justify-center
+          md:mt-10 md:gap-0`}
+      >
         <Line
           className="sm:w-[200px] sm:h-[100px]"
           options={options}

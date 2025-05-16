@@ -31,12 +31,24 @@ export function Dashboard() {
 
   return (
     <AppLayout>
-      <section className={`bg-[#1F252F] h-screen flex w-full outline outline-[#fff]/10 outline-1`}>
+      <section
+        className={`bg-[#1F252F] h-screen flex w-full outline outline-[#fff]/10 outline-1`}
+      >
         <AsideBar log={handleLogout} />
 
-        <article className="flex flex-col items-center sm:justify-start md:justify-center h-[100dvh] w-full md:px-32 md:py-16 sm:overflow-x-hidden md:overflow-hidden max-w-[1440px] sm:px-4 sm:py-8">
+        <article
+          className={`
+            flex flex-col items-center h-[100dvh] w-full max-w-[1440px] px-2 py-4 overflow-y-auto
+            sm:justify-start sm:overflow-x-hidden sm:px-4 sm:py-8
+            md:justify-center md:px-32 md:py-16 md:overflow-hidden `}
+        >
           <Fade className="w-full" direction="left" triggerOnce>
-            <h1 className="flex items-center gap-4 w-full h-fit text-oxford-blue-200 font-lexend font-bold text-[30px] md:mt-0">
+            <h1
+              className={`
+                flex items-center gap-4 w-full h-fit text-oxford-blue-200 font-lexend font-bold text-[25px]
+                sm:text-[30px]
+                md:mt-0`}
+            >
               Hey, @{user.username}! <Saluting fill={"#D3DAE4"} />
             </h1>
           </Fade>
