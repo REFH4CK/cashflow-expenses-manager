@@ -25,12 +25,12 @@ export function AsideBar({ log }) {
   return (
     <>
       <aside
-        className={`relative bg-[#28303E] sm:w-[5rem] md:w-[20rem] h-screen transition-all duration-300`}
+        className={`relative bg-[#28303E] w-[3rem] sm:w-[5rem] md:w-[20rem] h-[100dvh] transition-all duration-300`}
       >
-        <ul className="flex flex-col h-screen items-center justify-between p-6 overflow-hidden relative">
+        <ul className="flex flex-col h-screen items-center justify-between p-2 sm:p-6 overflow-hidden relative">
           <article className="flex flex-col gap-8 w-full mt-[8rem]">
-            <li className="flex items-center justify-between absolute top-0 left-0 bg-[#977d5773] w-full pt-4 pl-4 sm:pt-2 sm:pl-0">
-              <img src={logo} alt="CashFlow Logo" className="w-[6rem]" />
+            <li className="flex items-center justify-between absolute top-0 left-0 bg-[#977d5773] w-full pt-2 pl-0 sm:pt-2 sm:pl-0 md:pt-4 md:pl-4">
+              <img src={logo} alt="CashFlow Logo" className="w-[55px] sm:w-[6rem]" />
               <h3></h3>
             </li>
             {iconList.map((icon, i) => {
