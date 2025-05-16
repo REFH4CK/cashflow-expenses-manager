@@ -98,7 +98,7 @@ export function CashStats() {
     <>
       <section className={`bg-[#1F252F] h-screen flex overflow-hidden`}>
         <AsideBar log={handleLogout} />
-        <section className="flex flex-col gap-8 items-center w-full pt-[2rem] px-4 sm:pt-[2rem] md:pt-[3rem] overflow-x-hidden overflow-y-auto sm:px-4 md:px-0">
+        <section className="flex flex-col gap-8 items-center w-full pt-[2rem] px-2 sm:pt-[2rem] md:pt-[3rem] overflow-x-hidden overflow-y-auto sm:px-4 md:px-0">
           <Fade className="w-full" triggerOnce direction="left">
             <h2 className="text-2xl sm:text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full sm:pl-0 md:pl-16">
               Savings stats

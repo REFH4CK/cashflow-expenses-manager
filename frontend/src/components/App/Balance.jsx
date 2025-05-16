@@ -40,7 +40,7 @@ export function Balance({ UID }) {
     <>
       <section
         className={`
-          w-full max-w-[1440px] h-[36rem] flex gap-[1rem] flex-wrap pt-8
+          w-full max-w-[1440px] h-[36rem] flex gap-[0.75rem] flex-wrap pt-4
           sm:gap-[2rem]
           md:justify-normal`}
       >
@@ -49,7 +49,7 @@ export function Balance({ UID }) {
           damping={0.1}
           direction="up"
           triggerOnce
-          className="relative sm:w-full md:w-fit"
+          className="relative w-full md:w-fit"
         >
           {Array.isArray(balance) && balance.length > 0
             ? balance.map((b, i) => (
@@ -57,7 +57,7 @@ export function Balance({ UID }) {
                   key={i}
                   className={`
                     bg-oxford-blue-900 rounded-3xl overflow-hidden 
-                    w-[15.75rem]
+                    w-full
                     sm:w-full sm:h-[10rem] sm:pt-4 sm:flex
                     md:h-[18rem] md:pt-8 md:block`}
                 >

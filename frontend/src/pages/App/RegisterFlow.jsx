@@ -112,7 +112,7 @@ export function RegisterFlow() {
             </h2>
           </Fade>
           <Fade className="w-full" triggerOnce direction="up" delay={100}>
-            <article className="bg-[#28303E] rounded-xl h-[30rem] sm:w-full sm:h-[35rem] md:w-[45rem] md:h-[25rem] overflow-hidden">
+            <article className="bg-[#28303E] rounded-xl h-[30rem] sm:w-full sm:h-[35rem] md:w-[45rem] md:h-[25rem] overflow-hidden mx-auto">
               <div className="bg-[#4C617D]/20  sm:w-72 mx-auto p-4 flex justify-center gap-6 rounded-b-2xl">
                 <button
                   onClick={() => handleLabel("inflow")}

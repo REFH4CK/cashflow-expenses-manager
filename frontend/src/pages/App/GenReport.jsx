@@ -117,14 +117,14 @@ export function GenReport() {
     <>
       <section className={`bg-[#1F252F] h-screen flex`}>
         <AsideBar log={handleLogout} />
-        <section className="flex flex-col sm:gap-4 md:gap-8 items-center w-full sm:p-4 md:p-0 sm:pt-[2rem] md:pt-[4rem] sm:overflow-y-auto md:overflow-y-hidden">
+        <section className="flex flex-col p-2 gap-4 md:gap-8 items-center w-full sm:p-4 md:p-0 sm:pt-[2rem] md:pt-[4rem] overflow-y-auto overflow-x-hidden md:overflow-y-hidden">
           <Fade className="w-full" triggerOnce direction="left">
-            <h2 className="text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full sm:pl-0 md:pl-16">
+            <h2 className="text-2xl sm:text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full mt-6 sm:mt-0 sm:pl-0 md:pl-16">
               Savings reports
             </h2>
           </Fade>
           <Fade triggerOnce direction="up" className="sm:w-full md:w-fit">
-            <article className="bg-[#28303E] rounded-xl sm:w-full sm:h-fit md:w-[67rem] md:h-[42rem]">
+            <article className="bg-[#28303E] rounded-xl w-full h-fit sm:h-fit md:w-[67rem] md:h-[42rem]">
               <header className="pb-6 border-b border-oxford-blue-600/50">
                 <form className="pt-8 pl-6" onSubmit={handleSubmit}>
                   <div className="flex items-end gap-4 flex-wrap">
@@ -186,7 +186,7 @@ export function GenReport() {
                   </div>
                 </form>
               </header>
-              <section className="relative sm:h-[36.5rem] md:h-[34rem] flex items-start justify-center w-full">
+              <section className="relative h-[39rem] sm:h-[36.5rem] md:h-[34rem] flex items-start justify-center w-[15.75rem] sm:w-full">
                 <AllMovements
                   movements={responseData.movements}
                   pagination={responseData.pagination}

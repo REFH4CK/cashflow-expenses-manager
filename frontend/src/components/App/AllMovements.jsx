@@ -9,7 +9,7 @@ export function AllMovements({
 }) {
   if (loading) {
     return (
-      <div className="flex items-center justify-center mt-[15rem]">
+      <div className="flex items-center justify-center mt-[8rem] sm:mt-[15rem]">
         <PuffLoader size={64} color="#b35925"></PuffLoader>
       </div>
     );
@@ -17,7 +17,7 @@ export function AllMovements({
 
   if (!movements.length) {
     return (
-      <div className="flex items-center justify-center mt-[15rem] bg-tree-poppy-600/20 w-[15rem] mx-auto p-4 rounded-lg">
+      <div className="flex items-center justify-center mt-[8rem] sm:mt-[15rem] bg-tree-poppy-600/20 w-[15rem] mx-auto p-4 rounded-lg">
         <p className="text-white/85">No movements found</p>
       </div>
     );

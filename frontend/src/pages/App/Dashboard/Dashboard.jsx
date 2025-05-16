@@ -45,7 +45,7 @@ export function Dashboard() {
           <Fade className="w-full" direction="left" triggerOnce>
             <h1
               className={`
-                flex items-center gap-4 w-full h-fit text-oxford-blue-200 font-lexend font-bold text-[25px]
+                flex items-center gap-4 w-full h-fit text-oxford-blue-200 font-lexend font-bold text-2xl
                 sm:text-[30px]
                 md:mt-0`}
             >
@@ -56,7 +56,7 @@ export function Dashboard() {
           <Balance UID={user.id}></Balance>
 
           <Fade
-            className="w-full h-full mt-8"
+            className="w-full h-full mt-2 sm:mt-8"
             delay={800}
             direction="up"
             triggerOnce
