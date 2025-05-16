@@ -5,13 +5,7 @@ import { useEffect, useState } from "react";
 import { PuffLoader } from "react-spinners";
 import { Fade } from "react-awesome-reveal";
 
-export function ProfileInfo({
-  id,
-  name,
-  country,
-  username,
-  reputation,
-}) {
+export function ProfileInfo({ id, name, country, username, reputation }) {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -40,26 +34,33 @@ export function ProfileInfo({
 
   return (
     <>
-      <article className="flex sm:flex-col md:flex-row justify-between sm:p-6 md:p-12 md:items-center">
+      <article
+        className={`
+          flex flex-col justify-between p-4
+          sm:p-6
+          md:flex-row md:p-12 md:items-center`}
+      >
         <div className="flex gap-4">
           <Fade triggerOnce>
-            <div className="sm:size-[7rem] md:size-[10rem] sm:border-2 md:border-4 border-oxford-blue-700 rounded-full p-2">
+            <div className="size-[6rem] sm:size-[7rem] md:size-[10rem] sm:border-2 md:border-4 border-oxford-blue-700 rounded-full p-2">
               <img
-                src={`${profile[0].profile_photo != '' ? `http://localhost:3000/cashflow/api${profile[0].profile_photo}` : 'https://placehold.co/200x200'}`}
+                src={`${
+                  profile[0].profile_photo != ""
+                    ? `http://localhost:3000/cashflow/api${profile[0].profile_photo}`
+                    : "https://placehold.co/200x200"
+                }`}
                 alt={`Profile photo of ${username}`}
                 onError={(e) => {
-                  e.target.src = 'https://placehold.co/200x200';
+                  e.target.src = "https://placehold.co/200x200";
                 }}
                 className="rounded-full"
               />
             </div>
             <div className="flex flex-col sm:mt-0 md:mt-6">
-              <h2 className="text-3xl font-bold text-oxford-blue-200 font-baloo">
+              <h2 className="text-xl sm:text-3xl font-bold text-oxford-blue-200 font-baloo">
                 {name}{" "}
                 <ReactCountryFlag
-                  style={{
-                    fontSize: "2rem",
-                  }}
+                  className="text-xl sm:text-[2rem]"
                   aria-label={mappedCountry.name}
                   countryCode={mappedCountryCode}
                   svg
@@ -70,7 +71,7 @@ export function ProfileInfo({
               </span>
               <div className="flex flex-col pt-4 text-oxford-blue-200 font-medium font-baloo">
                 About him
-                <p className="text-oxford-blue-400 font-medium font-lexend">
+                <p className="text-sm sm:text-md text-oxford-blue-400 font-medium font-lexend">
                   {profile[0].description}
                 </p>
               </div>

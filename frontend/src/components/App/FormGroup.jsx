@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 
-export function FormGroup({ label, name, value, type, onChange, placeholder, width = "" }) {
+export function FormGroup({ label, name, value, type, onChange, placeholder, width = '' }) {
   return (
     <>
       <div className="flex flex-col">
@@ -14,7 +14,7 @@ export function FormGroup({ label, name, value, type, onChange, placeholder, wid
           placeholder={placeholder}
           name={name}
           value={value || ""}
-          className={`bg-oxford-blue-700 sm:w-[${width}rem] md:w-[14rem] text-white/65 rounded-lg p-2 px-3`}
+          className={`bg-oxford-blue-700 w-[12rem] sm:w-[${width ? "20rem" : width}] md:w-[14rem] text-white/65 rounded-lg p-2 px-3`}
           onChange={onChange}          
           autoComplete="off"
         />

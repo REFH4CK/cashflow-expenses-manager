@@ -22,8 +22,18 @@ export function Profile() {
     <>
       <section className={`bg-[#1F252F] h-screen w-full flex`}>
         <AsideBar log={handleLogout}></AsideBar>
-        <section className={`flex flex-col gap-6 items-center md:justify-center w-full sm:overflow-y-auto overflow-x-hidden sm:pt-[2rem] md:pt-0 sm:pb-[1rem] sm:p-4 md:p-0 md:pb-0 `}>
-          <article className="bg-[#28303E] sm:w-full md:w-[80%] md:h-[18rem] rounded-3xl shadow shadow-tree-poppy-700/50">
+        <section
+          className={`
+            flex flex-col gap-6 items-center overflow-x-hidden w-full overflow-y-auto pt-[1rem] p-2 
+            sm:overflow-y-auto sm:pt-[2rem] sm:pb-[1rem] sm:p-4
+            md:justify-center md:pt-0 md:p-0 md:pb-0 `}
+        >
+          <article
+            className={`
+              bg-[#28303E] rounded-3xl shadow shadow-tree-poppy-700/50 w-[15.75rem]
+              sm:w-full 
+              md:w-[80%] md:h-[18rem]`}
+          >
             <ProfileInfo
               id={user.id}
               name={user.name}
@@ -33,7 +43,12 @@ export function Profile() {
             ></ProfileInfo>
           </article>
 
-          <article className="bg-[#28303E] sm:w-full md:w-[80%] rounded-3xl shadow shadow-tree-poppy-700/50">
+          <article
+            className={`
+            bg-[#28303E] rounded-3xl shadow shadow-tree-poppy-700/50 w-[15.75rem] h-fit
+              sm:w-full
+              md:w-[80%]`}
+          >
             <ProfileConfig
               id={user.id}
               name={user.name}

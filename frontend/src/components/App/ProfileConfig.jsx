@@ -89,7 +89,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
           onSubmit={handleSubmit}
         >
           <Fade triggerOnce direction="up" damping={0.25} cascade>
-            <div className="flex sm:flex-col sm:gap-2 md:flex-row md:gap-28">
+            <div className="flex flex-col sm:gap-2 md:flex-row md:gap-28">
               <FormGroup
                 type={"text"}
                 label={"Your fullname"}
@@ -109,7 +109,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
                 readOnly
               />
             </div>
-            <div className="flex sm:flex-col sm:gap-2 md:flex-row md:gap-28">
+            <div className="flex flex-col sm:gap-2 md:flex-row md:gap-28">
               <FormGroup
                 type={"file"}
                 label={
@@ -121,6 +121,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
                 id="imageInput"
                 name="image"
                 onChange={handleImageChange}
+                width="12"
               />
               {preview && (
                 <img
@@ -136,6 +137,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
                 name="country"
                 value={country}
                 onChange={() => {}}
+                width="12"
                 readOnly
               />
             </div>
@@ -154,7 +156,7 @@ export function ProfileConfig({ photo, id, name, country, username }) {
             </div>
             <button
               type="submit"
-              className="bg-[#50759C] p-3 px-16 rounded-xl font-lexend text-sm cursor-pointer shadow-md shadow-[#00000070] disabled:opacity-50"
+              className="bg-[#50759C] mt-4 sm:mt-0 p-3 px-16 rounded-xl font-lexend text-sm cursor-pointer shadow-md shadow-[#00000070] disabled:opacity-50"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Saving..." : "Save changes"}
