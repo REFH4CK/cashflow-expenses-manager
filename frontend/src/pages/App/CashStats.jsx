@@ -98,16 +98,16 @@ export function CashStats() {
     <>
       <section className={`bg-[#1F252F] h-screen flex overflow-hidden`}>
         <AsideBar log={handleLogout} />
-        <section className="flex flex-col gap-8 items-center w-full sm:pt-[2rem] md:pt-[3rem] overflow-hidden sm:px-4 md:px-0">
+        <section className="flex flex-col gap-8 items-center w-full pt-[2rem] px-4 sm:pt-[2rem] md:pt-[3rem] overflow-x-hidden overflow-y-auto sm:px-4 md:px-0">
           <Fade className="w-full" triggerOnce direction="left">
-            <h2 className="text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full sm:pl-0 md:pl-16">
+            <h2 className="text-2xl sm:text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full sm:pl-0 md:pl-16">
               Savings stats
             </h2>
           </Fade>
-          <article className="bg-[#28303E] rounded-xl sm:w-full sm:h-[30rem] md:w-[65rem] md:h-[40rem] overflow-hidden">
+          <article className="bg-[#28303E] rounded-xl w-full h-[35rem] sm:h-[30rem] md:w-[65rem] md:h-[40rem] overflow-hidden">
             <header className="pb-6 border-b border-oxford-blue-600/50">
               <form
-                className="flex w-full sm:items-center sm:flex-wrap md:flex-row md:items-end gap-4 pt-6 sm:pl-4 md:pl-12"
+                className="flex w-full items-center flex-wrap md:flex-row md:items-end gap-4 pt-6 pl-4 sm:pl-4 md:pl-12"
                 onSubmit={handleSavingFilters}
               >
                 <div className="flex flex-col">

@@ -103,7 +103,7 @@ export function SavingsStats({ entries, exits, labels }) {
         {hasData ? (
           <Line options={options} data={data} />
         ) : (
-          <div className="flex items-center justify-center sm:mt-[6rem] md:mt-[14rem] bg-tree-poppy-600/20 w-[18rem] mx-auto p-4 rounded-lg">
+          <div className="flex items-center justify-center sm:mt-[6rem] md:mt-[14rem] bg-tree-poppy-600/20 w-[10rem] sm:w-[18rem] mx-auto p-4 rounded-lg">
             <p className="text-white/85">
               No data available for selected filters
             </p>
