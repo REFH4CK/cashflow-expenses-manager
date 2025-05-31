@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // Estado de carga
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,21 +18,21 @@ export const AuthProvider = ({ children }) => {
             credentials: "include",
           }
         );
+
         const data = await response.json();
-        if (data.user) {
-          setUser(data.user);
-        } else {
-          return navigate("/login");
-        }
+        setUser(data.user || null);
       } catch (error) {
-        console.error("Error verifying auth:", error);
+        console.error("Error:", error);
+        setUser(null);
+      } finally {
+        setLoading(false);
       }
     };
 
     verifyAuth();
-  }, [navigate]);
+  }, []);
 
-  const login = (userData) => {
+  const login = async (userData) => {
     setUser(userData);
   };
 
@@ -42,6 +43,8 @@ export const AuthProvider = ({ children }) => {
         credentials: "include",
       });
       setUser(null);
+      // Redirigir al usuario a la página de inicio o login
+      navigate("/login");
     } catch (error) {
       console.error("Error logging out:", error);
     }

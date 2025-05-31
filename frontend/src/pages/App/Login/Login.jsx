@@ -1,5 +1,5 @@
 import { Fade } from "react-awesome-reveal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HidePass, ShowPass } from "@/icons/ShowHidePass";
 import { toast } from "@pheralb/toast";
 import { useNavigate } from "react-router";
@@ -7,6 +7,7 @@ import { useAuth } from "@/context/useAuth";
 
 export function Login() {
   const [showPassword, setShowPassword] = useState("password");
+  const { user } = useAuth();
   const [loginData, setLoginData] = useState({
     username: "",
     password: "",
@@ -23,48 +24,58 @@ export function Login() {
     }
   };
 
-  const handleLoginData = (e) => {
+  const handleLoginData = async (e) => {
     e.preventDefault();
 
-    if (loginData.username === "" || loginData.password === "") {
-      toast.error({
-        text: "All fields are required!",
-      });
-    } else {
-      fetch("http://localhost:3000/cashflow/api/login", {
+    if (!loginData.username || !loginData.password) {
+      toast.error({ text: "All fields are required!" });
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/cashflow/api/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify(loginData),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.error) {
-            toast.error({
-              text: data.error,
-            });
-          } else {
-            if (data.user) {
-              login(data.user);
-              navigate("/dashboard");
-            }
-            toast.success({
-              text: data.message,
-              description: "Welcome to CashFlow💎",
-            });
+      });
 
-            setTimeout(() => {
-              navigate("/dashboard");
-            }, 2500);
+      const data = await response.json();
+
+      if (data.error) {
+        toast.error({ text: data.error });
+        return;
+      }
+
+      // Modificación clave aquí:
+      if (data.message === "Login successfully!") {
+        // Si el login es exitoso pero no viene el user, hacemos otra request
+        const userResponse = await fetch(
+          "http://localhost:3000/cashflow/api/verify-auth",
+          {
+            credentials: "include",
           }
-        })
-        .catch((err) => {
-          console.log(err);
+        );
+        const userData = await userResponse.json();
+
+        await login(userData.user || userData);
+        toast.success({
+          text: data.message,
+          description: "Welcome to CashFlow💎",
         });
+        navigate("/dashboard"); // Redirección directa aquí
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      toast.error({ text: "Login failed. Please try again." });
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard");
+    }
+  }, [user, navigate]);
 
   return (
     <>
