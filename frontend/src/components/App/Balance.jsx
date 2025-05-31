@@ -42,7 +42,8 @@ export function Balance({ UID }) {
         className={`
           w-full max-w-[1440px] h-[36rem] flex gap-[0.75rem] flex-wrap pt-4
           sm:gap-[2rem]
-          md:justify-normal`}
+          md:justify-between md:gap-[1.5rem] md:flex-nowrap
+          lg:justify-between`}
       >
         <Fade
           cascade
@@ -59,7 +60,8 @@ export function Balance({ UID }) {
                     bg-oxford-blue-900 rounded-3xl overflow-hidden 
                     w-full
                     sm:w-full sm:h-[10rem] sm:pt-4 sm:flex
-                    md:h-[18rem] md:pt-8 md:block`}
+                    md:w-[16rem] md:h-[20rem] md:pt-8 md:block
+                    lg:w-[18rem] lg:h-[22rem] lg:pt-10`}
                 >
                   <h2 className="text-[#596F8C] font-lexend font-semibold text-3xl sm:pr-0 px-6">
                     <span
@@ -76,7 +78,7 @@ export function Balance({ UID }) {
                         sm:text-[2rem] sm:mt-4 sm:mb-0
                         md:text-4xl`}
                     >
-                      {b.total_balance}
+                      {b.total_balance.toFixed(2)}
                     </p>
                   </h2>
                   <LineChart balancesData={b} />

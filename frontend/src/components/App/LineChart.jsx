@@ -153,8 +153,8 @@ export function LineChart(balancesData) {
       <div
         className={`
           hidden w-full h-fit px-3 py-4 
-          sm:flex sm:mt-8 sm:gap-4 sm:items-center sm:justify-center
-          md:mt-10 md:gap-0`}
+          sm:flex sm:mt-2 sm:gap-4 sm:items-center sm:justify-center
+          md:mt-7 md:gap-0`}
       >
         <Line
           className="sm:w-[200px] sm:h-[100px]"

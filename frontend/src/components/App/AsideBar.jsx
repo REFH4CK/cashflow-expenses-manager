@@ -25,7 +25,7 @@ export function AsideBar({ log }) {
   return (
     <>
       <aside
-        className={`relative bg-[#28303E] w-[3rem] sm:w-[5rem] md:w-[20rem] h-[100dvh] transition-all duration-300`}
+        className={`relative bg-[#28303E] w-[3rem] sm:w-[5rem] md:w-[5rem] lg:w-[20rem] h-[100dvh] transition-all duration-300`}
       >
         <ul className="flex flex-col h-screen items-center justify-between p-2 sm:p-6 overflow-hidden relative">
           <article className="flex flex-col gap-8 w-full mt-[8rem]">

@@ -20,10 +20,10 @@ export default {
       screens: {
         xsm: "360px", // Extra small devices
         sm: "500px", // Small devices
-        md: "768px", // Medium devices
-        lg: "1024px", // Large devices
-        xl: "1280px", // Extra large devices
-        "2xl": "1440px", // 2x Extra large devices
+        md: "1024px", // Medium devices
+        lg: "1280px", // Extra large devices
+        xl: "1440px", // Extra large devices
+        "2xl": "1980px", // 2x Extra large devices
       },
     },
     colors: {

@@ -98,13 +98,13 @@ export function CashStats() {
     <>
       <section className={`bg-[#1F252F] h-screen flex overflow-hidden`}>
         <AsideBar log={handleLogout} />
-        <section className="flex flex-col gap-8 items-center w-full pt-[2rem] px-2 sm:pt-[2rem] md:pt-[3rem] overflow-x-hidden overflow-y-auto sm:px-4 md:px-0">
+        <section className="flex flex-col gap-8 items-center w-full pt-[2rem] px-2 sm:pt-[2rem] md:pt-[3rem] overflow-x-hidden overflow-y-auto sm:px-4 md:px-">
           <Fade className="w-full" triggerOnce direction="left">
             <h2 className="text-2xl sm:text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full sm:pl-0 md:pl-16">
               Savings stats
             </h2>
           </Fade>
-          <article className="bg-[#28303E] rounded-xl w-full h-[35rem] sm:h-[30rem] md:w-[65rem] md:h-[40rem] overflow-hidden">
+          <article className="bg-[#28303E] rounded-xl w-full h-[50rem] sm:h-[46rem] md:w-[full] md:h-[40rem] overflow-hidden">
             <header className="pb-6 border-b border-oxford-blue-600/50">
               <form
                 className="flex w-full items-center flex-wrap md:flex-row md:items-end gap-4 pt-6 pl-4 sm:pl-4 md:pl-12"
@@ -161,7 +161,7 @@ export function CashStats() {
                 </button>
               </form>
             </header>
-            <div className="flex flex-col h-[39rem] p-4">
+            <div className="flex flex-col h-[39rem] md:h-[33rem] md:items-center md:justify-center p-4">
               <SavingsStats entries={entries} exits={exits} labels={labels} />
             </div>
           </article>

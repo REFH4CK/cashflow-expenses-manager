@@ -117,16 +117,16 @@ export function GenReport() {
     <>
       <section className={`bg-[#1F252F] h-screen flex`}>
         <AsideBar log={handleLogout} />
-        <section className="flex flex-col p-2 gap-4 md:gap-8 items-center w-full sm:p-4 md:p-0 sm:pt-[2rem] md:pt-[4rem] overflow-y-auto overflow-x-hidden md:overflow-y-hidden">
+        <section className="flex flex-col p-2 gap-4 md:gap-8 items-center w-full sm:p-4 md:p-0 sm:pt-[2rem] md:pt-[4rem] overflow-y-auto overflow-x-hidden md:overflow-y-hidden md:px-16">
           <Fade className="w-full" triggerOnce direction="left">
             <h2 className="text-2xl sm:text-4xl font-semibold font-lexend text-oxford-blue-200 text-left w-full mt-6 sm:mt-0 sm:pl-0 md:pl-16">
               Savings reports
             </h2>
           </Fade>
           <Fade triggerOnce direction="up" className="sm:w-full md:w-fit">
-            <article className="bg-[#28303E] rounded-xl w-full h-fit sm:h-fit md:w-[67rem] md:h-[42rem]">
+            <article className="bg-[#28303E] rounded-xl w-full h-fit sm:h-fit md:w-full md:h-[46rem] lg:h-[45rem]">
               <header className="pb-6 border-b border-oxford-blue-600/50">
-                <form className="pt-8 pl-6" onSubmit={handleSubmit}>
+                <form className="pt-8 px-6" onSubmit={handleSubmit}>
                   <div className="flex items-end gap-4 flex-wrap">
                     <Fade triggerOnce cascade damping={0.2}>
                       <FormGroup

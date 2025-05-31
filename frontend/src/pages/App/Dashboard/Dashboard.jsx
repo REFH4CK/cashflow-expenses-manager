@@ -38,9 +38,10 @@ export function Dashboard() {
 
         <article
           className={`
-            flex flex-col items-center h-[100dvh] w-full max-w-[1440px] px-2 py-4 overflow-y-auto
+            flex flex-col items-center h-[100dvh] w-full max-w-[1440px] px-2 py-4 overflow-y-auto mx-auto
             sm:justify-start sm:overflow-x-hidden sm:px-4 sm:py-8
-            md:justify-center md:px-32 md:py-16 md:overflow-hidden `}
+            md:justify-center md:px-16 md:py-16 md:overflow-hidden
+            lg:py-16 `}
         >
           <Fade className="w-full" direction="left" triggerOnce>
             <h1
